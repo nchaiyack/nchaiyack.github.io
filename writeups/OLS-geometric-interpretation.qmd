@@ -1,0 +1,368 @@
+---
+title: "Geometrically interpreting the OLS estimator as a projection operator"
+author: "Nick C"
+date: today
+format: 
+  html:
+    link-external-newwindow: false
+    toc: true
+    toc_float:
+      collapsed: false
+    self-contained: true
+    html-math-method: mathjax
+    include-before-body:
+      - text: |
+         <a href="https://nchaiyack.github.io" style="display: inline-block; border: 2px solid black; border-radius: 8px; padding: 6px 12px; text-decoration: none; color: black;">← Back to homepage.</a>
+
+execute:
+  echo: true
+editor_options: 
+  chunk_output_type: console
+---
+
+**The goal of this writeup:** I dimly remember my econometrics professor talking about the OLS estimator as an "projection" operator with geometric meaning. I also dimly remember taking a linear algebra class (i.e. vector spaces) in undergrad. So that I finally remember the geometric interpretation of the OLS estimator...
+
+I begin by describing the standard linear model setup, including the dimensions of the data (an $n$-vector of responses, an $n \times p$ design matrix, and a $p$-vector of parameters), as well as the homoskedasticity assumption that the errors follow a normal distribution with mean zero and covariance matrix $\sigma^2 I$. Next, I move on to derive a geometric interpretation of the OLS estimator by viewing the outcome vector as a point in $\mathbb{R}^n$ and showing how its projection onto the column space of the design matrix determines the coefficient estimates. I then explain the estimator for $\sigma^2$, noting how dividing by $n - p$ ensures unbiasedness, and use the same projection viewpoint to justify that normalization. Finally, I discuss the covariance of the OLS coefficients, tracing it to the randomness in the error term and explaining how the diagonal elements of the covariance matrix yield the standard errors of individual coefficient estimates.
+
+**Caveat:** I don't have the chops to do a lot of the derivations myself. At the end, in an appendix, I attach the ChatGPT o1 prompts that helped me write this up.
+
+### The usual linear model setup
+
+We *must* begin by fixing the size of our sample, $n$. Only then can we set everything up, from linear model to estimators. So let's say we sample $n$ cases of $p$ covariates each. 
+
+Of course, we will take 1 as our intercept coefficient, so we ultimately have $p + 1$ predictors/coefficients The standard equation for our linear model in matrix form $Y = X \beta + \epsilon$, where:
+
+-   $Y$ contains our $n$ observed outcomes in the form of a $n \times 1$ vector;
+
+-   $X$ is our $n \times (p + 1)$ matrix of cases; $\beta$ is our $(p + 1) \times 1$ vector of coefficients,
+
+-   and $\epsilon$ is our $n \times 1$ per-case errors.
+
+Recall the standard distributional assumptions:
+
+-   **The only source of randomness in our linear model is $\epsilon \sim MVN(0, \sigma^2 I)$**, recalling that $\sigma^2 I$ is the covariance matrix that encodes the homoskedasticity and independence assumptions: it is a a diagonal matrix with $\sigma^2$ on the diagonal, 0 everywhere else.
+
+-   Therefore, $Y \sim MVN(\beta X, \sigma^2 I)$
+
+In this setup, the objective of the game is to estimate the parameters $\beta$ (a matrix), $\sigma^2$ (a scalar).
+
+#### Deriving the geometric interpretation of the OLS estimator
+
+Get ready for some vector spaces.
+
+Recall that OLS gives us a closed-form formula for an optimal estimate of $\beta$, namely $\hat \beta = (X^T X)^{-1} X^T Y$. We take the factor $P_X = (X^T X)^{-1} X^T$ as an operator that, intuitively, is
+
+$$\begin{align}
+P_X : (\mathbb R^n \equiv \textrm{all possible $n$-sized samples of Y}) & \longrightarrow (\textrm{fixing $X$, the space of all possible OLS estimates for $\beta$ for all possible $Y$}) \\
+
+\textrm{Our sample of $Y$} & \longmapsto \textrm{OLS estimates of $\beta $associated with $X$ given $Y$.} \\
+\end{align}$$
+
+(I'm sure) this operator can be fully characterized by the "least squares" criterion -- i.e. that  minimizes the residuals (squared differences) between $Y$ and $\hat \beta X$.
+
+#### Of course, I don't think about it in those terms. Here is the way I geometrically think about it in terms of geometric projections.
+
+-   Interpret $Y$, our vector of outcome observations, as a point in $\mathbb R^n$, the space of all possible $n$-case outcome observations.
+
+-   Interpret $\mathbb R ^{p + 1}$ as the space of all possible choices of coefficient $\beta$. Then the matrix $X$ of dimension $n \times (p + 1)$ has columns that span a $\mathbb R^{p + 1}$ embedded in $\mathbb R^n$. This subspace encodes *the space of all plausible OLS $\beta$ coefficients $\beta_0, ..., \beta_p$ that $X$ gives rise to for every possible $Y$.*
+
+-   Then the projection matrix $P = (X^T X)^{-1} X^T$ takes our $\mathbb R^n$-vector of observed outcomes and spits out "best" estimates of $\beta$ -- geometrically, it is an *orthogonal* projection that is fully characterised by the fact that  it finds the "shortest" projection from outcome-space to possible-coefficient-given-$X$-space.
+
+    - *Example intuition: one can define a projection matrix $\mathbb R^3$ to a plane embedded in $\mathbb R^3$; this will take points in $\mathbb R^3$ to the closest point on the plane. This projection matrix provides an orthogonal projection in the sense that the vector connecting the point to the plane is normal to the plane.*
+  
+  - In this case, "shortest projection" **means satisfying the least squares criterion.** Why? The projection matrix is characterised as minimising the distance in $\mathbb R ^n$, given by $|| Y - (P Y) X||_{n}^2$ $= \sum_i^{n}(y_i - (PY)_i (1, x_{1(i)}, \dots, x_{p(i)}))^2$ $=\sum_i^n(y_i - \hat \beta_{OLS} x_i)^2$, which is exactly the least squares criterion.
+  
+    - *Example intuition. Now consider estimating the linear model "$y = \beta_0 + \beta_1 x_1$" with 3 cases. In this case, the matrix $X$ has a row for each of the 3 cases; with a column of 1s (since the intercept is considered to be a predictor that is constant 1), and a column of observed $x_1$s. Estimation of $\beta$ corresponds to projecting a point on a plane $Y \in \mathbb R^3$ to a point on a plane $\mathcal X$ embedded in $\mathbb R^3$ spanned by the columns of the observations $X$. Crucially, though, all of these such planes $\mathcal X$ must contain the vector $(1, 1, 1)^T$. While every linear estimation problem with a fixed number of cases corresponds to a projection problem, the converse is not true.*
+    
+### But wait, what about $\sigma^2$?
+
+Of course, the OLS estimator only estimates the coefficient vector $\beta$. We now need to estimate the parameter $\sigma^2$, the variance of each iid normally distributed per-case residual $\epsilon_1, \dots, \epsilon_n$. Well, assume that we have already derived the OLS estimators of our coefficients. The associated residuals are given by the formula: $\hat \sigma^2 = {1 \over n - (p + 1)} \textrm{(sum of squares of all observed residuals)}$ $= {1 \over n - (p + 1)} ||Y - X \hat \beta||^{2}$. **If you are reading this section out of context, note that $p$ has been defined here as the number of *non-intercept* parameters. The usual denominator is ${1 \over n - p}$.**
+
+-   Recall that an "OLS estimation" projects a point $Y \in \mathbb R^n$ to a point (of OLS estimates) $\hat \beta$ in $X$ an embedded $\mathbb R^{p + 1}$ in $\mathbb R^n$. The $n$-vector joining $Y$ to $\hat \beta$ -- call it $\epsilon$ -- is precisely an encoding of the $n$ residuals corresponding to each case. The length of $\epsilon$ is in fact $\sqrt{\textrm{sums of squares residual}}$.
+
+-   Because $\hat \beta$ has an uncertainty associated with it --  $\hat \beta$ is a point in $\beta$-space, but comes with an associated uncertainty -- this in fact suggests that the $n$-vector joining $Y$ to $\hat \beta$ comes with its own associated uncertainty, and in particular in $\sqrt{\textrm{sums of squares residual}}$. This is precisely what $\hat \sigma^2$ is capturing.
+
+**Now here is more about residual vectors.**
+
+-   In fact, more can be said about the space of such residual vectors $\epsilon$. Because the OLS estimation projection associated with $X$, $P_X$, is an orthogonal projection, the space of all such $\epsilon$ is orthogonal (i.e. normal) to the embedded $\mathbb R^{p + 1}$. Because of orthogonality, the spanned space $E_{X}$ is in fact of dimension $n - (p + 1)$.
+
+-   **Therefore**, a heuristic argument for $\hat \sigma^2 = {1 \over n - (p + 1)} ||Y - X\hat \beta||^2$ is as follows. The term $\hat \sigma^2$ is an uncertainty associated with the length of *one* vector, $||\epsilon||$, a scalar. However, the term $||Y - X\hat \beta||^2$ sums the length of vectors that live in $n - (p + 1)$ space. Therefore, scaling by $1 \over n - (p + 1)$ gets us an estimate of a term in 1 coordinate, $|\sigma^2|$.
+
+As a fun aside, the usual justification used to motivate introduction of the normalizing term ${1 \over n - (p + 1)}$ in $\hat \sigma^2 = {1 \over n - (p + 1)} ||Y - X\hat \beta||^2$ is to argue that it makes the estimator $\hat \sigma^2$ unbiased. I asked ChatGPT to show why not including the normalizing term makes the unbiasedness proof fail.
+
+<details>
+<summary>**ChatGPT prompt:** Give a proof of why the estimator associated with $\sigma^2$ is unbiased. Perhaps do so in a way that justifies the "normalizing" term 1/(n - p) by attempting to do show unbiasedness without that term, observe how the reasoning fails, and then note how introducing 1/(n - p) makes the unbiasedness proof go through. Does this lead to an intuitive interpretation of the role of 1/(n - p) in unbiasedness?</summary>
+
+Below is a step-by-step explanation of **why** the usual OLS estimator for $\sigma^2$,
+
+$$
+\hat{\sigma}^2 
+\;=\; \frac{1}{n-p}\,\|\,y - X\hat{\beta}\|^2,
+$$
+
+is **unbiased**, and **why** the factor $\tfrac{1}{n-p}$ (rather than $\tfrac{1}{n}$) is needed.  
+
+We’ll start by trying $\tfrac{1}{n}$ in the denominator and seeing what goes wrong, then show how $\tfrac{1}{n-p}$ fixes the issue.  
+
+---
+
+**1. The Usual Setup**
+
+We have the **linear model**:
+
+$$
+y \;=\; X\,\beta \;+\; \varepsilon,
+\quad
+\varepsilon \sim \mathcal{N}(0,\;\sigma^2 I_n),
+$$
+
+where
+
+- $y$ is an $n$-dimensional vector of responses,  
+- $X$ is an $n \times p$ full-rank design matrix,  
+- $\beta$ is a $p$-dimensional vector of unknown coefficients,  
+- $\varepsilon$ is an $n$-dimensional noise vector of i.i.d. $\mathcal{N}(0,\sigma^2)$ variables.
+
+The **OLS estimator** of $\beta$ is
+
+$$
+\hat{\beta}
+\;=\;
+(X^\mathsf{T}X)^{-1}\,X^\mathsf{T}\,y.
+$$
+
+Then the **residual vector** is
+
+$$
+\hat{\varepsilon} 
+\;=\;
+y \;-\; X\hat{\beta}.
+$$
+
+We want an **unbiased** estimator for $\sigma^2$.  
+
+---
+
+**2. Trying (Naively) to Use $\tfrac{1}{n}\,\|\hat{\varepsilon}\|^2$**
+
+A “natural” first guess might be
+
+$$
+\hat{\sigma}^2_{\text{naive}}
+\;=\;
+\frac{1}{n}\,\|\hat{\varepsilon}\|^2
+\;=\;
+\frac{1}{n}\,\sum_{i=1}^n \hat{\varepsilon}_i^2.
+$$
+
+Let’s see if that is unbiased. We check
+
+$$
+\mathbb{E}\bigl[\hat{\sigma}^2_{\text{naive}}\bigr]
+\;=\;
+\frac{1}{n}\,
+\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr].
+$$
+
+**2.1 Compute $\|\hat{\varepsilon}\|^2$ in Expectation**
+
+We know $\hat{\varepsilon} = M\,\varepsilon$, where $M = I_n - P$ and $P = X(X^\mathsf{T}X)^{-1}X^\mathsf{T}$ is the **hat matrix**. Indeed,
+
+$$
+\hat{\varepsilon}
+\;=\;
+y - X\hat{\beta}
+\;=\;
+(X\beta + \varepsilon) - X\bigl((X^\mathsf{T}X)^{-1}X^\mathsf{T}y\bigr)
+\;=\;
+\varepsilon - P\,\varepsilon
+\;=\;
+(I - P)\,\varepsilon
+\;=\;
+M\,\varepsilon.
+$$
+
+One can show $M$ is **idempotent** and symmetric, i.e. $M = M^2 = M^\mathsf{T}$. Then
+
+$$
+\|\hat{\varepsilon}\|^2
+\;=\;
+\varepsilon^\mathsf{T}\,M^\mathsf{T}\,M\,\varepsilon
+\;=\;
+\varepsilon^\mathsf{T}\,M\,\varepsilon.
+$$
+
+Taking expectation:
+
+$$
+\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr]
+\;=\;
+\mathbb{E}\bigl[\varepsilon^\mathsf{T} M \varepsilon\bigr]
+\;=\;
+\mathbb{E}\bigl[\mathrm{trace}(\varepsilon^\mathsf{T} M \varepsilon)\bigr]
+\;=\;
+\mathbb{E}\bigl[\mathrm{trace}(M\,\varepsilon\,\varepsilon^\mathsf{T})\bigr].
+$$
+
+Since $\mathrm{E}[\varepsilon \varepsilon^\mathsf{T}] = \sigma^2 I_n$, we get
+
+$$
+\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr]
+\;=\;
+\mathrm{trace}\bigl(M\,\sigma^2 I_n\bigr)
+\;=\;
+\sigma^2\,\mathrm{trace}(M).
+$$
+
+But $\mathrm{trace}(I_n - P) = \mathrm{trace}(I_n) - \mathrm{trace}(P) = n - p$. Indeed, $\mathrm{trace}(P)$ = $\mathrm{rank}(P)$ = $p$. Hence,
+
+$$
+\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr]
+\;=\;
+\sigma^2 \,(n - p).
+$$
+
+**2.2 Expectation of the Naive Estimator**
+
+$$
+\mathbb{E}\bigl[\hat{\sigma}^2_{\text{naive}}\bigr]
+\;=\;
+\frac{1}{n}\,\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr]
+\;=\;
+\frac{1}{n}\,\sigma^2\,(n - p)
+\;=\;
+\sigma^2\;\frac{n-p}{n}.
+$$
+
+This is **less** than $\sigma^2$. Therefore, $\hat{\sigma}^2_{\text{naive}}$ **underestimates** $\sigma^2$ on average.
+
+---
+
+**3. Fixing the Bias: Use $\tfrac{1}{n-p}\,\|\hat{\varepsilon}\|^2$**
+
+Now let’s define
+
+$$
+\hat{\sigma}^2
+\;=\;
+\frac{1}{\,n-p\,}\;\|\hat{\varepsilon}\|^2.
+$$
+
+Then
+
+$$
+\mathbb{E}\bigl[\hat{\sigma}^2\bigr]
+\;=\;
+\frac{1}{\,n-p\,}\,\mathbb{E}\bigl[\|\hat{\varepsilon}\|^2\bigr]
+\;=\;
+\frac{1}{\,n-p\,}\;\sigma^2\,(n - p)
+\;=\;
+\sigma^2.
+$$
+
+So **this** estimator is **unbiased**.
+
+---
+
+**3.1 Intuitive Interpretation of $n - p$**
+
+- We used $p$ parameters (the entries of $\beta$) to get our fitted model $X \hat{\beta}$. In doing so, we effectively “use up” $p$ degrees of freedom (dimensions).  
+- That leaves $n - p$ degrees of freedom for the **residuals** $\hat{\varepsilon}$.  
+- Hence, dividing by $n - p$ gives an **unbiased** measure of the variance of those residuals.
+
+**Geometric View**
+
+1. The **column space** of $X$ is $p$-dimensional.  
+2. You “project” $y$ into that space to get $\hat{y} = X\hat{\beta}$.  
+3. The **orthogonal complement** (where the residuals live) has dimension $n - p$.  
+4. Summing squared residuals over that $(n-p)$-dimensional subspace, you then divide by $n-p$ to estimate the variance.
+
+---
+
+**4. Conclusion**
+
+1. **Without the factor** $\tfrac{1}{n-p}$, the estimator is **biased**.  
+2. **Including** $\tfrac{1}{n-p}$ makes $\hat{\sigma}^2$ exactly **unbiased** (under the usual linear model assumptions).  
+3. **Interpretation**: The model “uses up” $p$ degrees of freedom to fit $\beta$, so only $n - p$ degrees of freedom remain to estimate the leftover noise variance. That is why we divide the residual sum of squares by $n-p$ rather than by $n$.
+</details> 
+    
+
+    
+#### Skippable: somre more random thoughts on projection and residual space.
+
+-   Call the space of such residual vectors $E_X$. As a consequence of the dimension of $E_X$, we can always <u>identify</u> $E_{X}$ (embedded in $\mathbb R^n$) with $\mathbb R^{n - (p - 1)}$ (not embedded in anything) in a "natural" way (probably expressed with a commutative diagram) such that indeed the vectors $\epsilon \in E$ (a) have coordinates that are iid. normal with mean 0 and share the same variance $\sigma^2$.
+
+    -   *Example intuition: In our case of orthogonally projecting a point in $\mathbb R^3$ onto an embedded 2-dimensionl plane in $\mathbb R^3$, the space of all residual vectors connecting a point and a projection form an embedded $\mathbb R^{(3 - 2)} = \mathbb R^1$. The natural identification $E_{X} \to \mathbb R^1$ simply takes the length of these vectors. To recover our initial observation $Y \in \mathbb R^3$, it is enough to be given the point $\hat \beta$ on the plane $\mathcal X$, and add a vector normal to the plane of length $\epsilon$.*
+    
+    -   *Example intuition, continued: the analogous estimation task is to estimate "$y = \beta_0 + \beta_1 x$" from 3 cases. The identification of $E_{X} \to \mathbb R^1$ suggests that the space of all such residual vectors $\epsilon$ is characterized by 1 number. <u>That one number is precisely the sample variance of the predictor $x$, recalling that the "predictor" associated with the intercept has no variance.</u>*
+    
+    
+### Finally: but wait, where do the standard errors come from?
+
+The standard errors for each term in fact fall out of the estimate of a more general gadget, $Cov(\hat \beta)$. The rough idea is that, since $Cov(\hat \beta)$ are *population* variances and covariances of our estiamtes, the $\widehat{Cov(\hat \beta)}$ provides *sampling* variances and covariances of or estimates, and the square roots of the diagonals of $\widehat{Cov(\hat \beta)}$ are sampling standard deviations of our covariances -- that is, standard errors.
+
+But what is $\widehat{Cov(\hat \beta)}$? Roughtly, we will compute $Cov(\hat \beta)$ and "take its estimate", like so.
+
+Note that this sampling covariance matrix is a random matrix, since the OLS estimator $\hat \beta$ for fixed $X$ and $Y$ is defined in terms of $\epsilon$:
+
+$$\begin{align}
+\hat \beta & = (X^T X)^{-1} X^T Y \\
+  & = (X^T X)^{-1} X^T (X\beta + \epsilon) \\
+  & = (X^T X)^{-1} X^T X\beta + (X^T X)^{-1} X^T \epsilon \\
+  & = \beta + (X^T X)^{-1} X^T \epsilon.
+\end{align}$$
+
+Therefore, To take the covariance matrix of $\hat\beta$, Recall that we can define the "cross-covariance" matrix of two random vectors $U \in \mathbb R^j, V\in \mathbb R_k$ as the matrix of element pairwise covariances:
+
+$$Cov(X, Y) = \begin{bmatrix}
+\mathrm{Cov}(X_1, Y_1) & \mathrm{Cov}(X_1, Y_2) & \cdots & \mathrm{Cov}(X_1, Y_k) \\
+\mathrm{Cov}(X_2, Y_1) & \mathrm{Cov}(X_2, Y_2) & \cdots & \mathrm{Cov}(X_2, Y_k) \\
+\vdots & \vdots & \ddots & \vdots \\
+\mathrm{Cov}(X_j, Y_1) & \mathrm{Cov}(X_j, Y_2) & \cdots & \mathrm{Cov}(X_j, Y_k)
+\end{bmatrix}$$
+
+Then the covariance matrix of $\hat\beta$ is:
+
+$$\begin{align}
+Cov(\hat \beta) &= Cov(\beta + (X^T X)^{-1} X^T \epsilon) \\
+  &= Cov(\beta) + Cov((X^T X)^{-1} X^T \epsilon) + Cov(\beta, (X^T X)^{-1} X^T \epsilon) + Cov((X^T X)^{-1} X^T \epsilon, \beta) \\
+  &= Cov((X^T X)^{-1} X^T \epsilon) \quad \textrm{since beta is a constant} \\
+  &= ((X^T X)^{-1} X^T)Cov(\epsilon)((X^T X)^{-1} X^T)^T
+\end{align}.$$
+
+"Passing to the estimate", we get $\widehat{Cov(\hat \beta)} = ((X^T X)^{-1} X^T)\widehat{Cov(\epsilon)}((X^T X)^{-1} X^T)^T$, where $\widehat{Cov(\epsilon)} = \hat \sigma^2 I.$ Again, to read off $SE(\hat\beta_i)$, we simply look at $\widehat{Cov(\hat \beta)}_{i,i} = \hat \sigma^2 (X^T X)^{-1}$.
+
+## Appendix: ChatGPT prompts
+
+<details>
+-- Can we express the OLS estimator in a more intuitive way -- perhaps geometrically as a projection matrix, for example?
+
+-- In the context of multivariate linear models, the OLS estimator is an estimator for the _coefficients_ associated with predictors. However, another parameter we must estimate is the variance of the per-case residuals (following the homoskedasticity assumption.) What is the estimator of the residual variance associated with the OLS estimator for coefficients?
+
+-- Is there an intuitive interpretation of the definition, or terms, of this estimator?
+
+-- Can a plane embedded in R^3 be described in terms of a matrix?
+
+-- Can the ambient n-dimensional subspace be realized as a "product" of some form of the embedded p-dimension subspace of R^n given by the matrix X (dimension n x p), and its orthogonal complement?
+
+-- What do you mean by "design matrix" in this setup?
+
+-- How is the residual variance estimated in the above setup?
+
+-- In the standard OLS context, what is the relationship between of one of parameters to estimate, the variance of the error (i.e. residual term), and the covariance matrix of the OLS estimates?
+
+-- Why is the theoretical covariance of the vector \beta h given like so?
+
+-- Recall that, taking \epsilon to be the error vector, \epsilon = Y - \beta X. What is the covariance matrix for \epsilon?
+
+-- More generally, given that J is a (a x 1) matrix, K is an (a x b) matrix, and \gamma is (b x 1) matrix, observe that J - K\gamma is an (a x 1) random vector. What is the covariance matrix of the random vector J - K\gamma?
+
+-- Give a proof of why the estimator associated with $\sigma^2$ is unbiased. Perhaps do so in a way that justifies the "normalizing" term 1/(n - p) by attempting to do show unbiasedness without that term, observe how the reasoning fails, and then note how introducing 1/(n - p) makes the unbiasedness proof go through. Does this lead to an intuitive interpretation of the role of 1/(n - p) in unbiasedness?
+
+-- Here is an Markdown file that gives an exposition of geometric intuition for the OLS estimator as a projection matrix, the estimator of the standard error of the residual term (and in particular why it is a _normalized_ sum of squares of residuals), and an account for how the standard errors for particular coefficients in the OLS estimator arise. It summarizes a few of the conversation and responses listed above. Provide your evaluation of the factuality of mathematical details mentioned, and mathematical reasoning, taking into account the fact that most of the arguments provided are in fact heuristic and geometric and do not necessarily lead to fact-checking.
+
+-- Outline the document, and the goal of each section, in one prose paragraph.
+</details> 
+    
+    
+  
