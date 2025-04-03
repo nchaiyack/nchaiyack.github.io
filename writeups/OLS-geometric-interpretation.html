@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nick C">
-<meta name="dcterms.date" content="2025-04-02">
+<meta name="dcterms.date" content="2025-04-03">
 
 <title>Geometrically interpreting the OLS estimator as a projection operator</title>
 <style>
@@ -3220,7 +3220,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 2, 2025</p>
+      <p class="date">April 3, 2025</p>
     </div>
   </div>
   
@@ -3233,7 +3233,8 @@ window.Quarto = {
 
 
 <p><strong>The goal of this writeup:</strong> I dimly remember my econometrics professor talking about the OLS estimator as an “projection” operator with geometric meaning. I also dimly remember taking a linear algebra class (i.e. vector spaces) in undergrad. So that I finally remember the geometric interpretation of the OLS estimator…</p>
-<p>I begin by describing the standard linear model setup, including the dimensions of the data (an <span class="math inline">\(n\)</span>-vector of responses, an <span class="math inline">\(n \times p\)</span> design matrix, and a <span class="math inline">\(p\)</span>-vector of parameters), as well as the homoskedasticity assumption that the errors follow a normal distribution with mean zero and covariance matrix <span class="math inline">\(\sigma^2 I\)</span>. Next, I move on to derive a geometric interpretation of the OLS estimator by viewing the outcome vector as a point in <span class="math inline">\(\mathbb{R}^n\)</span> and showing how its projection onto the column space of the design matrix determines the coefficient estimates. I then explain the estimator for <span class="math inline">\(\sigma^2\)</span>, noting how dividing by <span class="math inline">\(n - p\)</span> ensures unbiasedness, and use the same projection viewpoint to justify that normalization. Finally, I discuss the covariance of the OLS coefficients, tracing it to the randomness in the error term and explaining how the diagonal elements of the covariance matrix yield the standard errors of individual coefficient estimates.</p>
+<p>First, I describe the OLS estimator as a “projection operator”, given a fixed set of observations <span class="math inline">\(X\)</span>, from possible <span class="math inline">\(Y\)</span> to a point on the subspace of “possible <span class="math inline">\(\hat\beta\)</span>” embedded in <span class="math inline">\(Y\)</span>-space.</p>
+<p>Of course, we also need to motivate our estimator of the standard error <span class="math inline">\(\sigma^2\)</span> for the per-case residual, and in particular the normalization constant (the famous <span class="math inline">\(1/(n - p)\)</span> factor. I motivate our estimator of <span class="math inline">\(\sigma^2\)</span> as a geometric representation of the uncertainy around the line projection outputs <span class="math inline">\(Y\)</span> onto <span class="math inline">\(\hat \beta\)</span>-space. Finally, I compute the OLS estimates of the standard errors around each coefficeint.</p>
 <p><strong>Caveat:</strong> I don’t have the chops to do a lot of the derivations myself. At the end, in an appendix, I attach the ChatGPT o1 prompts that helped me write this up.</p>
 <section id="the-usual-linear-model-setup" class="level3">
 <h3 class="anchored" data-anchor-id="the-usual-linear-model-setup">The usual linear model setup</h3>
