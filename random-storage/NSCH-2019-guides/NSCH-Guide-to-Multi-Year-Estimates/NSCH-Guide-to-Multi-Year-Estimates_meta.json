@@ -1,0 +1,355 @@
+{
+  "table_of_contents": [
+    {
+      "title": "National Survey of Children's Health",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          111.0146484375,
+          321.36328125
+        ],
+        [
+          496.65234375,
+          321.36328125
+        ],
+        [
+          496.65234375,
+          351.260986328125
+        ],
+        [
+          111.0146484375,
+          351.260986328125
+        ]
+      ]
+    },
+    {
+      "title": "Adjusting Survey Weights",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          66.638671875,
+          329.291015625
+        ],
+        [
+          184.2275390625,
+          329.291015625
+        ],
+        [
+          184.2275390625,
+          341.97039794921875
+        ],
+        [
+          66.638671875,
+          341.97039794921875
+        ]
+      ]
+    },
+    {
+      "title": "Data Consistency Across Years",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          66.227783203125,
+          134.96484375
+        ],
+        [
+          205.294921875,
+          134.96484375
+        ],
+        [
+          205.294921875,
+          147.4267578125
+        ],
+        [
+          66.227783203125,
+          147.4267578125
+        ]
+      ]
+    },
+    {
+      "title": "Presenting Multi-Year Estimates",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          66.4892578125,
+          327.1640625
+        ],
+        [
+          215.15625,
+          327.1640625
+        ],
+        [
+          215.15625,
+          339.7808532714844
+        ],
+        [
+          66.4892578125,
+          339.7808532714844
+        ]
+      ]
+    },
+    {
+      "title": "Statistical Significance Testing",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          66.638671875,
+          505.44140625
+        ],
+        [
+          204.099609375,
+          505.44140625
+        ],
+        [
+          204.099609375,
+          517.81640625
+        ],
+        [
+          66.638671875,
+          517.81640625
+        ]
+      ]
+    },
+    {
+      "title": "Trend Analysis",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          66.302490234375,
+          153.6240234375
+        ],
+        [
+          134.47265625,
+          153.6240234375
+        ],
+        [
+          134.47265625,
+          166.44140625
+        ],
+        [
+          66.302490234375,
+          166.44140625
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          23
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "Line",
+          3
+        ],
+        [
+          "Picture",
+          1
+        ],
+        [
+          "SectionHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          122
+        ],
+        [
+          "Line",
+          45
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          113
+        ],
+        [
+          "Line",
+          36
+        ],
+        [
+          "Code",
+          5
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          147
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Code",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageFooter",
+          3
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          89
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Code",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          58
+        ],
+        [
+          "Line",
+          19
+        ],
+        [
+          "Text",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/NSCH-Guide-to-Multi-Year-Estimates"
+}

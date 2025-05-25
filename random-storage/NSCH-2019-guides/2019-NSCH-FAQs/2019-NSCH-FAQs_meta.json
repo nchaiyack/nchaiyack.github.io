@@ -1,0 +1,2038 @@
+{
+  "table_of_contents": [
+    {
+      "title": "2019 National Survey of Children's Health",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          83.8212890625,
+          321.943359375
+        ],
+        [
+          525.33984375,
+          321.943359375
+        ],
+        [
+          525.33984375,
+          351.260986328125
+        ],
+        [
+          83.8212890625,
+          351.260986328125
+        ]
+      ]
+    },
+    {
+      "title": "Data Users Frequency Asked Questions (FAQs)",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          136.86328125,
+          388.458984375
+        ],
+        [
+          477.52734375,
+          388.458984375
+        ],
+        [
+          477.52734375,
+          409.1484375
+        ],
+        [
+          136.86328125,
+          409.1484375
+        ]
+      ]
+    },
+    {
+      "title": "INTRODUCTION",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          30.25634765625,
+          129.1640625
+        ],
+        [
+          143.51220703125,
+          129.1640625
+        ],
+        [
+          143.51220703125,
+          146.953125
+        ],
+        [
+          30.25634765625,
+          146.953125
+        ]
+      ]
+    },
+    {
+      "title": "OVERVIEW",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          30.592529296875,
+          383.818359375
+        ],
+        [
+          107.876953125,
+          383.818359375
+        ],
+        [
+          107.876953125,
+          401.0121154785156
+        ],
+        [
+          30.592529296875,
+          401.0121154785156
+        ]
+      ]
+    },
+    {
+      "title": "What is the NSCH?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          30.6298828125,
+          415.3359375
+        ],
+        [
+          141.64453125,
+          415.3359375
+        ],
+        [
+          141.64453125,
+          431.1951599121094
+        ],
+        [
+          30.6298828125,
+          431.1951599121094
+        ]
+      ]
+    },
+    {
+      "title": "Why is the NSCH important?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          30.55517578125,
+          516.26953125
+        ],
+        [
+          197.525390625,
+          516.26953125
+        ],
+        [
+          197.525390625,
+          532.2351379394531
+        ],
+        [
+          30.55517578125,
+          532.2351379394531
+        ]
+      ]
+    },
+    {
+      "title": "Who sponsored the 2019 NSCH?",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          35.33642578125,
+          641.1796875
+        ],
+        [
+          224.71875,
+          641.1796875
+        ],
+        [
+          224.71875,
+          656.9151306152344
+        ],
+        [
+          35.33642578125,
+          656.9151306152344
+        ]
+      ]
+    },
+    {
+      "title": "Who conducted the 2019 NSCH?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.40576171875,
+          100.546875
+        ],
+        [
+          219.9375,
+          100.546875
+        ],
+        [
+          219.9375,
+          114.93511962890625
+        ],
+        [
+          30.40576171875,
+          114.93511962890625
+        ]
+      ]
+    },
+    {
+      "title": "How often are data collected and released?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.48046875,
+          184.46484375
+        ],
+        [
+          285.978515625,
+          184.46484375
+        ],
+        [
+          285.978515625,
+          199.1151123046875
+        ],
+        [
+          30.48046875,
+          199.1151123046875
+        ]
+      ]
+    },
+    {
+      "title": "What kinds of questions are asked?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.40576171875,
+          252.333984375
+        ],
+        [
+          238.166015625,
+          252.333984375
+        ],
+        [
+          238.166015625,
+          267.1551513671875
+        ],
+        [
+          30.40576171875,
+          267.1551513671875
+        ]
+      ]
+    },
+    {
+      "title": "When and where will the new 2019 data be released?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.6298828125,
+          510.46875
+        ],
+        [
+          344.84765625,
+          510.46875
+        ],
+        [
+          344.84765625,
+          524.7351379394531
+        ],
+        [
+          30.6298828125,
+          524.7351379394531
+        ]
+      ]
+    },
+    {
+      "title": "Where can I find additional resources about the NSCH?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.48046875,
+          579.0951538085938
+        ],
+        [
+          351.421875,
+          579.0951538085938
+        ],
+        [
+          351.421875,
+          593.0751495361328
+        ],
+        [
+          30.48046875,
+          593.0751495361328
+        ]
+      ]
+    },
+    {
+      "title": "HISTORY",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.517822265625,
+          646.20703125
+        ],
+        [
+          95.625,
+          646.20703125
+        ],
+        [
+          95.625,
+          661.9520874023438
+        ],
+        [
+          30.517822265625,
+          661.9520874023438
+        ]
+      ]
+    },
+    {
+      "title": "How long has HRSA MCHB been collecting these data?",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          30.9287109375,
+          678.2151412963867
+        ],
+        [
+          347.23828125,
+          677.14453125
+        ],
+        [
+          347.23828125,
+          692.1951446533203
+        ],
+        [
+          30.9287109375,
+          692.1951446533203
+        ]
+      ]
+    },
+    {
+      "title": "What happened to the National Survey of Children with Special Health Care Needs(NS-\nCSHCN)?",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          30.0322265625,
+          111.6650390625
+        ],
+        [
+          533.109375,
+          111.6650390625
+        ],
+        [
+          533.109375,
+          144.75091552734375
+        ],
+        [
+          30.0322265625,
+          144.75091552734375
+        ]
+      ]
+    },
+    {
+      "title": "Where can I find data released before 2016?",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          30.181640625,
+          253.107421875
+        ],
+        [
+          290.4609375,
+          253.107421875
+        ],
+        [
+          290.4609375,
+          269.19512939453125
+        ],
+        [
+          30.181640625,
+          269.19512939453125
+        ]
+      ]
+    },
+    {
+      "title": "What were the major content additions to the NSCH since 2016?",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          29.8828125,
+          324.45703125
+        ],
+        [
+          407.900390625,
+          324.45703125
+        ],
+        [
+          407.900390625,
+          340.4151306152344
+        ],
+        [
+          29.8828125,
+          340.4151306152344
+        ]
+      ]
+    },
+    {
+      "title": "2019 DATA COLLECTION",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          30.181640625,
+          443.56640625
+        ],
+        [
+          203.203125,
+          443.56640625
+        ],
+        [
+          203.203125,
+          460.58203125
+        ],
+        [
+          30.181640625,
+          460.58203125
+        ]
+      ]
+    },
+    {
+      "title": "When were the data collected?",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          30.40576171875,
+          475.27734375
+        ],
+        [
+          213.064453125,
+          475.27734375
+        ],
+        [
+          213.064453125,
+          490.71514892578125
+        ],
+        [
+          30.40576171875,
+          490.71514892578125
+        ]
+      ]
+    },
+    {
+      "title": "Who participated in the 2019 NSCH?",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          30.40576171875,
+          535.9921875
+        ],
+        [
+          244.142578125,
+          535.9921875
+        ],
+        [
+          244.142578125,
+          551.6726684570312
+        ],
+        [
+          30.40576171875,
+          551.6726684570312
+        ]
+      ]
+    },
+    {
+      "title": "What was the 2019 NSCH sample design?",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          30.25634765625,
+          633.83203125
+        ],
+        [
+          272.232421875,
+          633.83203125
+        ],
+        [
+          272.232421875,
+          649.2951354980469
+        ],
+        [
+          30.25634765625,
+          649.2951354980469
+        ]
+      ]
+    },
+    {
+      "title": "A sample of approximately 180,000 addresses was selected from the Census Master Address File (MAF).",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          30.181640625,
+          663.22265625
+        ],
+        [
+          498.4453125,
+          663.22265625
+        ],
+        [
+          498.4453125,
+          676.37109375
+        ],
+        [
+          30.181640625,
+          676.37109375
+        ]
+      ]
+    },
+    {
+      "title": "How were the 2019 NSCH data collected?",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          30.48046875,
+          328.7109375
+        ],
+        [
+          271.7841796875,
+          328.7109375
+        ],
+        [
+          271.7841796875,
+          345.09515380859375
+        ],
+        [
+          30.48046875,
+          345.09515380859375
+        ]
+      ]
+    },
+    {
+      "title": "Participants answered survey questions using a Screener Questionnaire and Topical Questionnaire.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          30.181640625,
+          358.48828125
+        ],
+        [
+          485.0078125,
+          358.48828125
+        ],
+        [
+          485.0078125,
+          372.0603332519531
+        ],
+        [
+          30.181640625,
+          372.0603332519531
+        ]
+      ]
+    },
+    {
+      "title": "Households could complete the 2019 NSCH online, on paper, or over the phone.",
+      "heading_level": null,
+      "page_id": 5,
+      "polygon": [
+        [
+          29.8828125,
+          491.90625
+        ],
+        [
+          386.7291259765625,
+          491.90625
+        ],
+        [
+          386.7291259765625,
+          505.828125
+        ],
+        [
+          29.8828125,
+          505.828125
+        ]
+      ]
+    },
+    {
+      "title": "Where can I find copies of the 2019 questionnaires?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          29.28515625,
+          86.1416015625
+        ],
+        [
+          334.08984375,
+          86.1416015625
+        ],
+        [
+          334.08984375,
+          102.755126953125
+        ],
+        [
+          29.28515625,
+          102.755126953125
+        ]
+      ]
+    },
+    {
+      "title": "Did the 2019 NSCH use incentives to encourage participation?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.0322265625,
+          167.642578125
+        ],
+        [
+          391.46484375,
+          167.642578125
+        ],
+        [
+          391.46484375,
+          182.79510498046875
+        ],
+        [
+          30.0322265625,
+          182.79510498046875
+        ]
+      ]
+    },
+    {
+      "title": "2019 DATA COLLECTION RESULTS",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.3310546875,
+          371.63671875
+        ],
+        [
+          267.8994140625,
+          371.63671875
+        ],
+        [
+          267.8994140625,
+          389.42578125
+        ],
+        [
+          30.3310546875,
+          389.42578125
+        ]
+      ]
+    },
+    {
+      "title": "Who were the respondents to the 2019 NSCH?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.40576171875,
+          402.57421875
+        ],
+        [
+          303.01171875,
+          402.57421875
+        ],
+        [
+          303.01171875,
+          418.53515625
+        ],
+        [
+          30.40576171875,
+          418.53515625
+        ]
+      ]
+    },
+    {
+      "title": "How long did it take to complete a questionnaire?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.48046875,
+          522.84375
+        ],
+        [
+          323.033203125,
+          522.84375
+        ],
+        [
+          323.033203125,
+          537.9351501464844
+        ],
+        [
+          30.48046875,
+          537.9351501464844
+        ]
+      ]
+    },
+    {
+      "title": "How many questionnaires were completed?",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.25634765625,
+          601.734375
+        ],
+        [
+          288.66796875,
+          601.734375
+        ],
+        [
+          288.66796875,
+          617.0751495361328
+        ],
+        [
+          30.25634765625,
+          617.0751495361328
+        ]
+      ]
+    },
+    {
+      "title": "36,196 screener questionnaires with children were completed.",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          30.0322265625,
+          629.96484375
+        ],
+        [
+          314.3671875,
+          628.41796875
+        ],
+        [
+          314.3671875,
+          641.580810546875
+        ],
+        [
+          30.0322265625,
+          642.33984375
+        ]
+      ]
+    },
+    {
+      "title": "29,433 detailed topical questionnaires were completed.",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          31.020000457763672,
+          58.587890625
+        ],
+        [
+          287.9519958496094,
+          58.587890625
+        ],
+        [
+          287.9519958496094,
+          71.100830078125
+        ],
+        [
+          31.020000457763672,
+          71.100830078125
+        ]
+      ]
+    },
+    {
+      "title": "What were the response rates?",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          30.6298828125,
+          124.13671875
+        ],
+        [
+          214.1103515625,
+          124.13671875
+        ],
+        [
+          214.1103515625,
+          138.45513916015625
+        ],
+        [
+          30.6298828125,
+          138.45513916015625
+        ]
+      ]
+    },
+    {
+      "title": "The weighted Screener Completion Rate was 47.8%.",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          30.25634765625,
+          191.3291015625
+        ],
+        [
+          254.302734375,
+          191.3291015625
+        ],
+        [
+          254.302734375,
+          203.52679443359375
+        ],
+        [
+          30.25634765625,
+          203.52679443359375
+        ]
+      ]
+    },
+    {
+      "title": "The weighted Topical Completion Rate is 35.3%.",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          30.55517578125,
+          402.57421875
+        ],
+        [
+          238.763671875,
+          402.57421875
+        ],
+        [
+          238.763671875,
+          415.38385009765625
+        ],
+        [
+          30.55517578125,
+          415.38385009765625
+        ]
+      ]
+    },
+    {
+      "title": "The weighted Interview Completion Rate is 79.5%.",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          30.0322265625,
+          574.27734375
+        ],
+        [
+          248.7744140625,
+          574.27734375
+        ],
+        [
+          248.7744140625,
+          586.65234375
+        ],
+        [
+          30.0322265625,
+          586.65234375
+        ]
+      ]
+    },
+    {
+      "title": "The weighted Overall Response Rate is 42.4%.",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          30.181640625,
+          654.71484375
+        ],
+        [
+          230.85000610351562,
+          654.71484375
+        ],
+        [
+          230.85000610351562,
+          667.2608184814453
+        ],
+        [
+          30.181640625,
+          667.2608184814453
+        ]
+      ]
+    },
+    {
+      "title": "What was the potential impact of nonresponse bias on key survey estimates?",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          31.020000457763672,
+          69.46435546875
+        ],
+        [
+          483.802734375,
+          69.46435546875
+        ],
+        [
+          483.802734375,
+          85.1751708984375
+        ],
+        [
+          31.020000457763672,
+          85.1751708984375
+        ]
+      ]
+    },
+    {
+      "title": "How many complete questionnaires are included on the 2019 data files?",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          30.181640625,
+          154.30078125
+        ],
+        [
+          452.126953125,
+          154.30078125
+        ],
+        [
+          452.126953125,
+          169.47515869140625
+        ],
+        [
+          30.181640625,
+          169.47515869140625
+        ]
+      ]
+    },
+    {
+      "title": "The screener level data file includes records for 36,196 households.",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          30.0322265625,
+          183.4013671875
+        ],
+        [
+          336.48046875,
+          183.4013671875
+        ],
+        [
+          336.48046875,
+          196.4403076171875
+        ],
+        [
+          30.0322265625,
+          196.4403076171875
+        ]
+      ]
+    },
+    {
+      "title": "The detailed topical questionnaire data file includes records for 29,433 children.",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          30.3310546875,
+          250.98046875
+        ],
+        [
+          396.24609375,
+          250.98046875
+        ],
+        [
+          396.24609375,
+          263.4608154296875
+        ],
+        [
+          30.3310546875,
+          263.4608154296875
+        ]
+      ]
+    },
+    {
+      "title": "2019 DATA PROCESSING METHODS",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          30.40576171875,
+          345.146484375
+        ],
+        [
+          276.1171875,
+          345.146484375
+        ],
+        [
+          276.1171875,
+          362.162109375
+        ],
+        [
+          30.40576171875,
+          362.162109375
+        ]
+      ]
+    },
+    {
+      "title": "How were sample weights calculated?",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          30.181640625,
+          378.404296875
+        ],
+        [
+          255.6474609375,
+          378.404296875
+        ],
+        [
+          255.6474609375,
+          393.2751159667969
+        ],
+        [
+          30.181640625,
+          393.2751159667969
+        ]
+      ]
+    },
+    {
+      "title": "How are missing data identified on the data files?",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          29.50927734375,
+          289.65234375
+        ],
+        [
+          320.044921875,
+          289.65234375
+        ],
+        [
+          320.044921875,
+          304.71514892578125
+        ],
+        [
+          29.50927734375,
+          304.71514892578125
+        ]
+      ]
+    },
+    {
+      "title": "Are any missing data imputed?",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          29.50927734375,
+          438.92578125
+        ],
+        [
+          211.869140625,
+          438.92578125
+        ],
+        [
+          211.869140625,
+          454.3551330566406
+        ],
+        [
+          29.50927734375,
+          454.3551330566406
+        ]
+      ]
+    },
+    {
+      "title": "The 2019 NSCH data files flag missing or imputed variables.",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          29.35986328125,
+          144.7294921875
+        ],
+        [
+          303.26580810546875,
+          144.7294921875
+        ],
+        [
+          303.26580810546875,
+          158.040771484375
+        ],
+        [
+          29.35986328125,
+          158.040771484375
+        ]
+      ]
+    },
+    {
+      "title": "Where can I find more information about NSCH data files, including derived variables and \ndata suppression?",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          29.7333984375,
+          598.25390625
+        ],
+        [
+          535.7230834960938,
+          598.25390625
+        ],
+        [
+          535.7230834960938,
+          631.51171875
+        ],
+        [
+          29.7333984375,
+          631.51171875
+        ]
+      ]
+    },
+    {
+      "title": "ESTIMATION, HYPOTHESIS TESTING, AND DATA ANALYSIS",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          30.3310546875,
+          698.80078125
+        ],
+        [
+          432.10546875,
+          698.80078125
+        ],
+        [
+          432.10546875,
+          716.58984375
+        ],
+        [
+          30.3310546875,
+          716.58984375
+        ]
+      ]
+    },
+    {
+      "title": "Are special programs needed to analyze these data?",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          30.55517578125,
+          59.0712890625
+        ],
+        [
+          334.6875,
+          59.0712890625
+        ],
+        [
+          334.6875,
+          74.79510498046875
+        ],
+        [
+          30.55517578125,
+          74.79510498046875
+        ]
+      ]
+    },
+    {
+      "title": "Whom does this sample represent?",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          30.3310546875,
+          144.24609375
+        ],
+        [
+          237.26953125,
+          144.24609375
+        ],
+        [
+          237.26953125,
+          160.35516357421875
+        ],
+        [
+          30.3310546875,
+          160.35516357421875
+        ]
+      ]
+    },
+    {
+      "title": "Can I combine data from different years of the redesigned survey?",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          30.0322265625,
+          228.357421875
+        ],
+        [
+          416.56640625,
+          228.357421875
+        ],
+        [
+          416.56640625,
+          244.53509521484375
+        ],
+        [
+          30.0322265625,
+          244.53509521484375
+        ]
+      ]
+    },
+    {
+      "title": "Is it possible to conduct time-series trend analyses with NSCH data from 2016 to 2019?",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          30.181640625,
+          484.171875
+        ],
+        [
+          536.6953125,
+          484.171875
+        ],
+        [
+          536.6953125,
+          499.6526794433594
+        ],
+        [
+          30.181640625,
+          499.6526794433594
+        ]
+      ]
+    },
+    {
+      "title": "Is it possible to conduct time-series trend analyses with NSCH data prior to 2016?",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          30.6298828125,
+          687.5859375
+        ],
+        [
+          503.2265625,
+          687.5859375
+        ],
+        [
+          503.2265625,
+          702.3351440429688
+        ],
+        [
+          30.6298828125,
+          702.3351440429688
+        ]
+      ]
+    },
+    {
+      "title": "Is it possible to link the screener and detailed topical questionnaire data files?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          30.6298828125,
+          113.4052734375
+        ],
+        [
+          485.296875,
+          113.4052734375
+        ],
+        [
+          485.296875,
+          128.55511474609375
+        ],
+        [
+          30.6298828125,
+          128.55511474609375
+        ]
+      ]
+    },
+    {
+      "title": "What analyses should utilize the Screener file?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          30.3310546875,
+          208.634765625
+        ],
+        [
+          303.7587890625,
+          208.634765625
+        ],
+        [
+          303.7587890625,
+          223.71514892578125
+        ],
+        [
+          30.3310546875,
+          223.71514892578125
+        ]
+      ]
+    },
+    {
+      "title": "How do I estimate variance?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          30.0322265625,
+          351.140625
+        ],
+        [
+          197.6748046875,
+          351.140625
+        ],
+        [
+          197.6748046875,
+          366.87677001953125
+        ],
+        [
+          30.0322265625,
+          366.87677001953125
+        ]
+      ]
+    },
+    {
+      "title": "Can the data be used for subgroup analysis?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          30.48046875,
+          608.6953125
+        ],
+        [
+          288.369140625,
+          608.6953125
+        ],
+        [
+          288.369140625,
+          624.3951263427734
+        ],
+        [
+          30.48046875,
+          624.3951263427734
+        ]
+      ]
+    },
+    {
+      "title": "Sub-groups with small sample sizes may produce unstable estimates.",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          27.4921875,
+          58.82958984375
+        ],
+        [
+          348.43359375,
+          58.82958984375
+        ],
+        [
+          348.43359375,
+          71.2208251953125
+        ],
+        [
+          27.4921875,
+          71.2208251953125
+        ]
+      ]
+    },
+    {
+      "title": "State-level estimates may be compared to national estimates.",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          29.50927734375,
+          193.359375
+        ],
+        [
+          309.4837951660156,
+          193.359375
+        ],
+        [
+          309.4837951660156,
+          205.5062255859375
+        ],
+        [
+          29.50927734375,
+          205.5062255859375
+        ]
+      ]
+    },
+    {
+      "title": "DATA USE",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          30.55517578125,
+          367.576171875
+        ],
+        [
+          93.6600112915039,
+          367.576171875
+        ],
+        [
+          93.6600112915039,
+          383.0315856933594
+        ],
+        [
+          30.55517578125,
+          383.0315856933594
+        ]
+      ]
+    },
+    {
+      "title": "How do I cite this document?",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          31.00341796875,
+          708.85546875
+        ],
+        [
+          202.0078125,
+          708.85546875
+        ],
+        [
+          202.0078125,
+          724.4751434326172
+        ],
+        [
+          31.00341796875,
+          724.4751434326172
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          21
+        ],
+        [
+          "Line",
+          5
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "Picture",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          161
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "ListItem",
+          12
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          175
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          208
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          152
+        ],
+        [
+          "Line",
+          39
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          180
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          219
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "ListItem",
+          11
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          7
+        ],
+        [
+          "ListGroup",
+          4
+        ],
+        [
+          "Footnote",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          189
+        ],
+        [
+          "Line",
+          43
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          283
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          301
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "ListItem",
+          31
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "ListGroup",
+          4
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          224
+        ],
+        [
+          "Line",
+          64
+        ],
+        [
+          "TableCell",
+          33
+        ],
+        [
+          "Text",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          108
+        ],
+        [
+          "Line",
+          37
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          4
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          291
+        ],
+        [
+          "Line",
+          44
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "ListItem",
+          3
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "PageHeader",
+          1
+        ],
+        [
+          "Equation",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          35
+        ],
+        [
+          "Line",
+          5
+        ],
+        [
+          "PageFooter",
+          2
+        ],
+        [
+          "Text",
+          1
+        ],
+        [
+          "PageHeader",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data/2019-NSCH-FAQs"
+}
