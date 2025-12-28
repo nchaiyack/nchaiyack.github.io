@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Nick C</title>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
@@ -24,22 +25,47 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" id="top">
     <h1>Nick Chaiyachakorn</h1>
     <hr>
-    <img src="resources/index-sem-diag/index-sem-diag.png" style="display: block; margin: 0 auto; max-width: 3.5in; width: 100%; height: auto;">
-    <p><em>Figure: path diagram of an SEM latent growth model, for 4 time points, with subject/case-varying constant and linear coefficient.</em></p>
+    <figure style="margin:0;">
+      <img src="resources/index-sem-diag/index-sem-diag.png" alt="Path diagram of SEM latent growth model" style="display: block; margin: 0 auto; max-width: 3.5in; width: 100%; height: auto;">
+      <figcaption style="text-align:center; font-style:italic; font-size:0.9em; margin-top:0.5em;">Figure: path diagram of an SEM latent growth model, for 4 time points, with subject/case-varying constant and linear coefficient.</figcaption>
+    </figure>
     <p>When I grow up, I want to be a statistical consultant for applied social psychologists doing real world stuff. I love taking all sorts of statistics methods classes – SEM, multilevel modelling, survival analysis, psychometrics, cluster models with correlated covariances, etc...</p>
     <hr>
-    <h2>Open-Source Software on GitHub</h2>
-    <p>I've been getting back into coding; I do small projects that involve numerics. Currently, I only have:</p>
+    <nav aria-label="Contents" style="font-size:0.95em; margin:0;">
+      <strong>Contents:</strong>
+      <span style="margin-left:0.5em;">1. <a href="#writing">Writing</a></span>
+      <span style="margin-left:0.5em;">2. <a href="#opensource">Open-Source Software on GitHub</a></span>
+    </nav>
+    <hr>
+    <h2 id="writing">Writing</h2>
+    <p>I learn things by writing them up. Here are some of the things I've been learning recently.</p>
+    <p><em>Caveat emptor:</em> I'm not good enough at math to do derivations from scratch, so heavily rely on ChatGPT to give me rigorous mathematical derivations and arguments. For full transparency, I attach the prompts I used at the end.</p>
+    <p style="margin-left: 1em;">
+      <a href="https://publications.aap.org/aapnews/news/33726/Trauma-informed-care-principles-can-be-adapted-for?">(2025-12-01; unfortunately paywalled)</a>
+      Me and a research mentor, Dr. Katharine Zuckerman, co-authored a mini "op-ed" in the newsletter of the American Academy of Pediatrics about how autistic kids in crisis can be treated better by pediatric urgent care providers and hospitals. A great deal, if not all, of these is true for autistic adults... and more.
+      Pediatricians are awesome. This benefitted heavily from the experiences of Dr. Zuckerman and her pediatrician colleagues who have thought a great deal about trauma-informed care of kids with autism (and other disabilities); especially those who experience crisis a great deal.
+    </p>
+    <p style="margin-left: 1em;">
+      <a href="writeups/ascii-art-conversion-cw-ssim.html">(2025-07-14)</a> 
+      "Lab notebook": (Unsuccessful) attempt to convert graphics to ASCII art by subdivision into tiles and glyph matching
+    </p>
+    <p style="margin-left: 1em;">
+      <a href="writeups/OLS-geometric-interpretation.html">(2025-04-02)</a> 
+      Reminder to myself about the geometric intuition behind the OLS estimator + associated standard error.
+    </p>
+    <p style="font-size:0.9em; margin-top:0.25em;"><a href="#top">(back)</a></p>
+    <h2 id="opensource">Open-Source Software on GitHub</h2>
+    <p>I've been getting back into coding; I do small projects that meet my needs/scratch my itches in my R statistical analyses, and vintage Macintosh hackery. Currently, I only have:</p>
     <p style="margin-left: 1em;">
       <a href="https://github.com/nchaiyack/r-correlation-machine">(2025-12-17) run_correlations.R</a> 
       Flexible R utility for running lots of correlations with optional stratification, directional/nondirectional hypothesis tests, and Bonferroni correction by default. Uses fancy tidyverse select syntax. Useful for psychometric validation studies.
     </p>
     <p style="margin-left: 1em;">
       <a href="https://raw.githubusercontent.com/nchaiyack/nchaiyack.github.io/refs/heads/main/random-storage/color-detection-diagnostic.c">color-detection-diagnostic.c</a> 
-      Mini-utility exercising multiple methods to determine terminal colour capabilites on *nix platforms -
+      Mini-utility exercising multiple methods to determine terminal colour capabilities on *nix platforms -
           environment variables, 'ncurses', xterm-style Primary/Secondary Device Attribute queries, true-colour roundtripping,
           a visual demo, and process name detection.
     </p>
@@ -51,17 +77,7 @@
       <a href="https://github.com/nchaiyack/minivmac">DazzlerGFX, heavily <em>WIP/playground</em></a> 
       Mini vMac, modified to add a virtual "PDS expansion card" to the Macintosh SE platform. It currently has a general-purpose framework with (a) a whopping ~1 MB of shared on-device memory that can be accessed without any latency, and (b) the ability to asynchronously execute 7 commands at once. Just no actual functionality to emulate yet! You could probably even do DMA copies in one (emulated) cycle.
     </p>
-    <h2>Writeups</h2>
-    <p>I learn things by writing them up. Here are some of the things I've been learning recently.</p>
-    <p><em>Caveat emptor:</em> I'm not good enough at math to do derivations from scratch, so heavily rely on ChatGPT to give me rigorous mathematical derivations and arguments. For full transparency, I attach the prompts I used at the end.</p>
-    <p style="margin-left: 1em;">
-      <a href="writeups/ascii-art-conversion-cw-ssim.html">(2025-07-14)</a> 
-      "Lab notebook": (Unsuccessful) attempt to convert graphics to ASCII art by subdivision into tiles and glyph matching
-    </p>
-    <p style="margin-left: 1em;">
-      <a href="writeups/OLS-geometric-interpretation.html">(2025-04-02)</a> 
-      Reminder to myself about the geometric intuition behind the OLS estimator + associated standard error.
-    </p>
+    <p style="font-size:0.9em; margin-top:0.25em;"><a href="#top">(back)</a></p>
   </div>
 </body>
 </html>
