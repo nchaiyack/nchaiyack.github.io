@@ -1,0 +1,23 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html{line-height:1.15;-webkit-text-size-adjust:100%}body{max-width:800px;margin:16px}main{display:block}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline dotted}b,strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}body p{text-align:justify;text-justify:inter-word;line-height:1.5em}body ul li:not(:last-child),body>footer ul li:not(:last-child){margin-bottom:.5em}body figure{margin-left:-16px;margin-right:-16px}body figure img{display:block;width:100%;height:auto}body figure figcaption{margin-top:8px;margin-left:16px;margin-right:16px;line-height:1.5em}body>footer ul,body>nav ul{padding-left:0;list-style:none}body>footer{margin-top:20px;border-top:1px solid #aaa}body article>footer,body figure figcaption{font-size:smaller;font-style:italic}@media only screen and (min-width:1016px){body{margin-left:200px}body figure{display:flex;width:1000px;margin-left:-200px;margin-right:0}body figure img{width:800px}body figure figcaption{margin:0 0 0 16px}}
+/* Personal styling extensions */
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	p {
+		line-height: 110%;
+	}
+}
+/* Foldout sections */
+details.foldout-section {
+	> summary {
+	cursor: pointer;
+	padding: 2px 6px;
+	text-decoration: underline;
+		h2 {
+			display: inline
+		}
+	}
+}
+details.foldout-section > summary::marker {
+	font-size: 150%;
+}

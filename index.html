@@ -1,313 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Nick C</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nick Chaiyachakorn</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="resources/favicons/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicons/favicon-16x16.png" />
+    <link rel="stylesheet" href="resources/style.css" />
     <style>
-      body {
-        font-family: Helvetica, Arial, sans-serif;
-        text-align: left;
-      }
-      .container {
-        margin: 32px 0 32px 32px;
-        max-width: 6in;
-      }
-      h1 {
-        font-size: 2em;
-        font-weight: bold;
-      }
-      h2 {
-        font-size: 1em;
-        font-weight: bold;
-      }
+      /* Tables in the "statistical passport" section */
       table.passport-table {
-        margin-left: 1em;
+        margin-left: 2em;
         border-collapse: separate;
         border-spacing: 0;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-      }
-      .passport-table .col-label {
-        width: 70%;
-      }
-
-      .passport-table .col-value {
-        width: 30%;
-      }
-
-      .passport-table tr td {
-        padding-top: 1ex;
-        padding-bottom: 1ex;
+        col.col-label {
+          width: 70%;
+        }
+        col.col-value {
+          width: 30%;
+        }
+        tr td {
+          padding: 1ex;
+        }
       }
       .passport-table tr + tr td {
         border-top: 1px solid #ccc;
       }
     </style>
   </head>
+
   <body>
-    <div class="container" id="top">
-      <h1 style="margin-block-end: 0.2em">Nick Chaiyachakorn</h1>
-      <p style="margin-block-start: 0.2em"> <b><b>chaiyach@ohsu.edu
-            (academic CV tbd)<br>
-          </b>MS Biostatistics candidate<br>
-          Oregon Health and Science University, School of Public Health<br>
-        </b> </p>
-      <figure> <img src="resources/index-sem-diag/index-sem-diag.png"
-          alt="Path diagram of SEM latent growth model" style=" display:
-          block; margin: 0 auto; max-width: 3.5in; width: 100%; height:
-          auto; "> <figcaption style=" text-align: center; font-style:
-          italic; font-size: 0.9em; margin-top: 0.5em; "> Figure: path
-          diagram of an SEM latent growth model, for 4 time points, with
-          subject/case-varying constant and linear coefficient. </figcaption>
-      </figure>
-      <p> <b>A bit about me. </b>I am a quantitative researcher in the
-        applied social and health sciences. I currently have the
-        privilege of doing autism research in both
-        community-participatory and epidemiological contexts. For fun, I
-        take too many quantitative methods courses. (My graduate program
-        directors can testify to the headaches I've given them!) </p>
-      <p> I aspire to be a statistical polyglot. So I've spent a lot of
-        my career building a wide statistical toolbox: I've had the
-        privilege to work with/learn from from social psychologists,
-        survey statisticians, psychometricians, high-performance
-        computing engineers, geostatisticians, and epidemiologists. </p>
-      <p>I have three core beliefs:<br>
-      </p>
+    <main>
+      <article>
+        <header>
+          <h1 style="margin: 0">Nick Chaiyachakorn</h1>
+          <p style="margin: 0"><b>chaiyach@ohsu.edu (academic CV tbd)</b></p>
+          <p style="margin: 0"><b>MS Biostatistics candidate</b></p>
+          <p style="margin: 0"><b>Oregon Health and Science University, School of Public Health</b></p>
+        </header>
+        <figure>
+          <picture>
+            <img
+              src="resources/index-sem-diag/index-sem-diag.png"
+              alt="Path diagram of SEM latent growth model"
+              style="max-width: 3.5in"
+            />
+          </picture>
+          <figcaption>
+            Path diagram of an SEM latent growth model, for 4 time points, with subject/case-varying constant and linear
+            coefficient.
+          </figcaption>
+        </figure>
+        <section>
+          <h2>A bit about me.</h2>
+          <p>
+            I am a quantitative researcher in the applied social and health sciences. I currently have the privilege of
+            doing autism research in both community-participatory and epidemiological contexts. For fun, I take too many
+            quantitative methods courses. (My graduate program directors can testify to the headaches I've given them!)
+          </p>
+          <p>
+            I believe the most original research comes from interdisciplinary work within the social and health
+            sciences, and dialogue between their statistical lenses, despite differences in language.
+          </p>
+          <p>
+            I aspire to be a statistical polyglot. So I've spent a lot of my career building a wide statistical toolbox.
+            I've had the privilege to work with/learn from from social psychologists, survey statisticians,
+            psychometricians, high-performance computing engineers, geostatisticians, and epidemiologists.
+            <mark>If you need an applied statistician in the social sciences, do reach out to the email above!</mark>
+          </p>
+          <p>
+            <a href="http://www.ams.org/publications/journals/notices/201610/rnoti-p1164.pdfGghOt">Everybody counts.</a>
+          </p>
+        </section>
+        <section>
+          <details class="foldout-section">
+            <summary><h2>My statistical toolbox</h2></summary>
+            <p>
+              As people collect visas to countries, I collect (and cherish) I've had the privilege of talking my
+              research mentors into letting me doing the following types of analyses:
+            </p>
+
+            <table class="passport-table">
+              <colgroup>
+                <col class="col-label" />
+                <col class="col-value" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>
+                    Structural equation modelling – exploratory/confirmatory factor analysis, multi-group SEM,
+                    longitudinal models, growth curve analysis
+                  </td>
+                  <td>...on healthcare patient survey datasets</td>
+                </tr>
+                <tr>
+                  <td>Multilevel/hierarchical/mixed effects modelling</td>
+                  <td>...on high-school/post-high school educational attainment data</td>
+                </tr>
+                <tr>
+                  <td>Analysis of survey sample data (e.g. multi-stage stratified/clustered samples)</td>
+                  <td>
+                    ...on public sector survey research at ...on epidemiological surveillance data (e.g.
+                    <a href="https://www.childhealthdata.org/learn-about-the-nsch/NSCH"
+                      >National Survey of Children's Health</a
+                    >)
+                  </td>
+                </tr>
+                <tr>
+                  <td>Latent variable methods in general – e.g. latent class and trajectory/transition analysis</td>
+                  <td>...on healthcare accommodations data</td>
+                </tr>
+                <tr>
+                  <td>Psychometrics and psychological scale/instrument validation</td>
+                  <td>...on patient-reported outcome measures developed by and for autistic community members</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p>These are things I've learned in graduate-level classes, and wish I could use more in real life...</p>
+            <table class="passport-table">
+              <colgroup>
+                <col class="col-label" />
+                <col class="col-value" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>
+                    Longitudinal models with separate cross-sectional and longitudinal effects (ahoy there Lord's
+                    Paradox!)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Matching methods for causal analyses (the types epidemiologists do)</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Spatiotemporal modelling (co/variogram analysis and kriging, generalized additive models)</td>
+                  <td>...on spatiotemporal ad auction data</td>
+                </tr>
+                <tr>
+                  <td>Survival/time-to-event analysis (proportional hazards models, mostly)</td>
+                  <td>...on breast cancer cohort study data</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>One day, I'll learn...</p>
+            <table class="passport-table">
+              <colgroup>
+                <col class="col-label" />
+                <col class="col-value" />
+              </colgroup>
+              <tbody>
+                <tr>
+                  <td>Complex survey weighting methods (raking)</td>
+                  <td>...like the pollsters do!</td>
+                </tr>
+                <tr>
+                  <td>Advanced design of experiments – the type that industrial statisticians use</td>
+                  <td>...like the local statisticians at Intel do!</td>
+                </tr>
+              </tbody>
+            </table>
+          </details>
+          <details class="foldout-section">
+            <summary><h2>Writing</h2></summary>
+            <p>
+              I learn things by writing them up. Unfortunately, since grad school is killing me, I don't have a lot of
+              time to wring things up. Nevertheless, here are some of the things I've been learning recently.
+            </p>
+            <h3>
+              <a
+                href="https://publications.aap.org/aapnews/news/33726/Trauma-informed-care-principles-can-be-adapted-for?"
+              >
+                Trauma-informed care principles can be adapted for youth with autism. <em>AAP News.</em> (2005-12-01)</a
+              >
+            </h3>
+            <p>
+              <strong>Unfortunately paywalled!</strong> Me and a research mentor, Dr. Katharine Zuckerman, co-authored a
+              mini "op-ed" in the newsletter of the American Academy of Pediatrics about how autistic kids in crisis can
+              be treated better by pediatric urgent care providers and hospitals.
+            </p>
+            <p>
+              A great deal, if not all, of these is true for autistic adults, and adults with disabilities in general.
+            </p>
+            <p>
+              Pediatricians are awesome. This benefitted heavily from the experiences of Dr. Zuckerman and her
+              pediatrician colleagues who have thought a great deal about trauma-informed care of kids with autism (and
+              other disabilities); especially those who experience crisis a great deal.
+            </p>
+            <h3>
+              <a href="writeups/OLS-geometric-interpretation.html">
+                Geometric interpretation of the OLS estimator (2025-04-02)</a
+              >
+            </h3>
+            <p>
+              Reminder to myself about the geometric intuition behind the OLS estimator as a projection operator, and
+              its associated standard error.
+            </p>
+          </details>
+          <details class="foldout-section">
+            <summary><h2>Coding</h2></summary>
+            <p>
+              School keeps me busy, so to distract myself I do small non-statistics related utilities, mostly for
+              command-line applications.
+            </p>
+            <h3>
+              <a
+                href="https://raw.githubusercontent.com/nchaiyack/nchaiyack.github.io/refs/heads/main/random-storage/color-detection-diagnostic.c"
+                >color-detection-diagnostic.c</a
+              >
+            </h3>
+
+            <p>
+              Mini-utility exercising multiple methods to determine terminal colour capabilities on *nix platforms -
+              environment variables, 'ncurses', xterm-style Primary/Secondary Device Attribute queries, true-colour
+              roundtripping, a visual demo, and process name detection.
+            </p>
+            <h3><a href="https://github.com/nchaiyack/libfixmathmatrix.h">libfixmathmatrix</a></h3>
+            <p>
+              A header-only (+ optional source file) amalgamation of a 32-bit fixed-point numerics and linear algebra
+              library.
+            </p>
+          </details>
+          <details class="foldout-section">
+            <summary><h2>Research mentors I've been privileged to have</h2></summary>
+            <p>
+              I'm indebted to so many kind people who've given advice to me, especially during rough times. Here, I'll
+              limit myself to the academic mentors who I've had sustained relationships with for many years. They've
+              kept me going rough times and the precarity of research. <em>Alphabetical</em> order:
+            </p>
+            <ul>
+              <li>
+                <a href="https://www.pdx.edu/regional-research-institute/">Debi Elliott</a> (Portland State University,
+                Regional Research Institute)<br />
+              </li>
+              <li>
+                <a href="https://aaspire.org">Christina Nicolaidis</a>
+                (Portland State University, Academic Autism Spectrum Partnership in Research and Education)
+              </li>
+              <li>
+                <a href="Center for Improvement of Child and Family Services">Katharine Cahn</a>
+                (emerita, Portland State University, Center for Improvement of Child and Family Services)
+              </li>
+              <li>
+                <a href="https://www.ohsu.edu/doernbecher/katharine-zuckerman-lab">Katharine Zuckerman </a>(Oregon
+                Health and Science University, Pediatrics)
+              </li>
+              <li><a href="https://www.reed.edu/english/faculty/">Lisa Steinman </a>(emerita, Reed College)</li>
+              <li>
+                <a href="https://www.pdx.edu/profile/mathew-uretsky">Mathew Uretsky</a> (Portland State University,
+                School of Social Work)
+              </li>
+            </ul>
+          </details>
+          <details class="foldout-section">
+            <summary><h2>Miscellany</h2></summary>
+            <h3>
+              <a href="random-storage/M1 chip Explainer 070.pdf"
+                >Mirror: <em>M1 Exploration - v0.70</em>, Maynard Handley</a
+              >
+            </h3>
+            <p>
+              Have you barely learned what a superscalar processor is? Have you always wondered how modern
+              microprocessors actually keep track of instructions "in flight"? Here's an old document by Maynard Handley
+              providing a surprisingly accessible nuts-and-bolts description of the microarchitecture of Apple's M1.
+            </p>
+            <p>
+              This was circulating on the internet around 2021 via a single Google Drive link, but disappeared a while
+              ago. To preserve it for posterity, I mirror it here.
+            </p>
+          </details>
+        </section>
+        <footer>
+          <p>Last updated <time datetime="2026-02-14">Feb 14, 2026</time></p>
+        </footer>
+      </article>
+    </main>
+    <footer>
       <ul>
-        <li> The most original research and statistical thinking comes
-          from interdisciplinary work, and dialogue between the
-          different statistical lenses of different fields in the social
-          and health sciences. </li>
-        <li> Statistical models are the language of testable hypotheses
-          – and that the more tools we have, the more questions we can
-          rigorously ask and seek evidence for. <br>
-        </li>
-        <li> <a
-href="http://www.ams.org/publications/journals/notices/201610/rnoti-p1164.pdfGghOt">Everybody
-            counts.</a><br>
+        <li><a href="https://github.com/nchaiyack/" title="GitHub">https://github.com/nchaiyack/</a></li>
+        <li>
+          All writing that's actually mine
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" title="CC BY-SA 4.0">CC BY-SA 4.0</a>
         </li>
       </ul>
-      <hr>
-      <nav aria-label="Contents" style="font-size: 0.95em; margin: 0"> <strong>Contents:</strong><span
-          style="margin-left: 0.5em">1. <a href="#passport">My
-            Statistical Passport</a></span> <span style="margin-left:
-          0.5em">2. <a href="#writing">Writing</a></span> <span
-          style="margin-left: 0.5em">3. <a href="#opensource">Open-Source
-            Software on GitHub&nbsp;</a></span> <span
-          style="margin-left: 0.5em">3. <a href="#mentors">Research
-            Mentors I've Been Privileged to Have</a></span> </nav>
-      <hr>
-      <h2 id="passport">My Statistical Passport<br>
-      </h2>
-      <p> As people collect visas to countries, I collect (and cherish)
-        the diversity of statistical analyses I've done.<br>
-      </p>
-      <p> I've had the privilege of talking my research mentors into
-        letting me doing the following types of analyses:<br>
-      </p>
-      <br>
-      <table class="passport-table">
-        <colgroup> <col class="col-label"> <col class="col-value"> </colgroup>
-        <tbody>
-          <tr>
-            <td> Structural equation modelling –
-              exploratory/confirmatory factor analysis, multi-group SEM,
-              longitudinal models, growth curve analysis <br>
-            </td>
-            <td>...on healthcare patient survey datasets<br>
-            </td>
-          </tr>
-          <tr>
-            <td>Multilevel/hierarchical/mixed effects modelling</td>
-            <td> ...on high-school/post-high school educational
-              attainment data<br>
-            </td>
-          </tr>
-          <tr>
-            <td> Analysis of survey sample data (e.g. multi-stage
-              stratified/clustered samples) </td>
-            <td> ...on public sector survey research at <br>
-              <br>
-              ...on epidemiological surveillance data (e.g. <a
-                href="https://www.childhealthdata.org/learn-about-the-nsch/NSCH">National
-                Survey of Children's Health</a>)<br>
-            </td>
-          </tr>
-          <tr>
-            <td> Latent variable methods in general – e.g. latent class
-              and trajectory/transition analysis </td>
-            <td>...on healthcare accommodations data<br>
-            </td>
-          </tr>
-          <tr>
-            <td>Psychometrics and psychological scale/instrument
-              validation</td>
-            <td> ...on patient-reported outcome measures developed by
-              and for autistic community members<br>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br>
-      <p> These are things I've learned in graduate-level classes, and
-        wish I could use more in real life...<br>
-      </p>
-      <table class="passport-table">
-        <colgroup> <col class="col-label"> <col class="col-value"> </colgroup>
-        <tbody>
-          <tr>
-            <td> Longitudinal models with separate cross-sectional and
-              longitudinal effects (ahoy there Lord's Paradox!) </td>
-            <td><br>
-            </td>
-          </tr>
-          <tr>
-            <td> Matching methods for causal analyses (the types
-              epidemiologists do)<br>
-            </td>
-            <td><br>
-            </td>
-          </tr>
-          <tr>
-            <td> Spatiotemporal modelling (co/variogram analysis and
-              kriging, generalized additive models) </td>
-            <td>...on spatiotemporal ad auction data<br>
-            </td>
-          </tr>
-          <tr>
-            <td> Survival/time-to-event analysis (proportional hazards
-              models, mostly)<br>
-            </td>
-            <td>...on breast cancer cohort study data<br>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p>One day, I'll learn...</p>
-      <table class="passport-table">
-        <colgroup> <col class="col-label"> <col class="col-value"> </colgroup>
-        <tbody>
-          <tr>
-            <td>Complex survey weighting methods (raking)<br>
-            </td>
-            <td>...like the pollsters do!<br>
-            </td>
-          </tr>
-          <tr>
-            <td> Advanced design of experiments – the type that
-              industrial statisticians use<br>
-            </td>
-            <td>...like the local statisticians at Intel do!<br>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p> <a
-href="file:///Users/h/Documents/GitHub/nchaiyack.github.io/index.html#top">(back)</a>
-      </p>
-      <h2 id="writing">Writing</h2>
-      <p> I learn things by writing them up. Here are some of the things
-        I've been learning recently. </p>
-      <p> <em>Caveat emptor:</em> I'm not good enough at math to do
-        derivations from scratch, so heavily rely on ChatGPT to give me
-        rigorous mathematical derivations and arguments. For full
-        transparency, I attach the prompts I used at the end. </p>
-      <p style="margin-left: 1em"> <a
-href="https://publications.aap.org/aapnews/news/33726/Trauma-informed-care-principles-can-be-adapted-for?">(2025-12-01;
-          unfortunately paywalled)</a> Me and a research mentor, Dr.
-        Katharine Zuckerman, co-authored a mini "op-ed" in the
-        newsletter of the American Academy of Pediatrics about how
-        autistic kids in crisis can be treated better by pediatric
-        urgent care providers and hospitals. </p>
-      <p style="margin-left: 1em"> A great deal, if not all, of these is
-        true for autistic adults, and adults with disabilities in
-        general. </p>
-      <p style="margin-left: 1em"> Pediatricians are awesome. This
-        benefitted heavily from the experiences of Dr. Zuckerman and her
-        pediatrician colleagues who have thought a great deal about
-        trauma-informed care of kids with autism (and other
-        disabilities); especially those who experience crisis a great
-        deal. </p>
-      <p style="margin-left: 1em"> <a
-          href="writeups/ascii-art-conversion-cw-ssim.html">(2025-07-14)</a>
-        "Lab notebook": (Unsuccessful) attempt to convert graphics to
-        ASCII art by subdivision into tiles and glyph matching. </p>
-      <p style="margin-left: 1em"> <a
-          href="writeups/OLS-geometric-interpretation.html">(2025-04-02)</a>
-        Reminder to myself about the geometric intuition behind the OLS
-        estimator + associated standard error. </p>
-      <p style="font-size: 0.9em; margin-top: 0.25em"> <a href="#top">(back)</a>
-      </p>
-      <h2 id="opensource">Open-Source Software on GitHub</h2>
-      <p> I've been getting back into coding; I do small projects that
-        meet my needs/scratch my itches in my R statistical analyses,
-        and vintage Macintosh hackery. Currently, I only have: </p>
-      <p style="margin-left: 1em"> <a
-          href="https://github.com/nchaiyack/r-correlation-machine">(2025-12-17)
-          run_correlations.R</a> Flexible R utility for running lots of
-        correlations with optional stratification,
-        directional/nondirectional hypothesis tests, and Bonferroni
-        correction by default. Uses fancy tidyverse select syntax.
-        Useful for psychometric validation studies. </p>
-      <p style="margin-left: 1em"> <a
-href="https://raw.githubusercontent.com/nchaiyack/nchaiyack.github.io/refs/heads/main/random-storage/color-detection-diagnostic.c">color-detection-diagnostic.c</a>
-        Mini-utility exercising multiple methods to determine terminal
-        colour capabilities on *nix platforms - environment variables,
-        'ncurses', xterm-style Primary/Secondary Device Attribute
-        queries, true-colour roundtripping, a visual demo, and process
-        name detection. </p>
-      <p style="margin-left: 1em"> <a
-          href="https://github.com/nchaiyack/libfixmathmatrix.h">libfixmathmatrix</a>
-        A header-only (+ optional source file) amalgamation of a 32-bit
-        fixed-point numerics and linear algebra library. </p>
-      <p style="margin-left: 1em"> <a
-          href="https://github.com/nchaiyack/minivmac">DazzlerGFX,
-          heavily <em>WIP/playground</em></a> Mini vMac, modified to
-        add a virtual "PDS expansion card" to the Macintosh SE platform.
-        It currently has a general-purpose framework with (a) a whopping
-        ~1 MB of shared on-device memory that can be accessed without
-        any latency, and (b) the ability to asynchronously execute 7
-        commands at once. Just no actual functionality to emulate yet!
-        You could probably even do DMA copies in one (emulated) cycle. </p>
-      <p style="font-size: 0.9em; margin-top: 0.25em"> <a href="#top">(back)</a><br>
-      </p>
-      <h2 id="mentors">Research Mentors I've Been Privileged to Have</h2>
-      <p> I'm indebted to so many kind people who've given advice to me,
-        especially during rough times. Here, I'll limit myself to the
-        academic mentors who I've had sustained relationships with for
-        many years. They've kept me going rough times and the precarity
-        of research. <u>Alphabetical</u> order:<br>
-      </p>
-      <ul>
-        <li> <a href="https://www.pdx.edu/regional-research-institute/">Debi
-            Elliott</a> (Portland State University, Regional Research
-          Institute)<br>
-        </li>
-        <li> <a href="https://aaspire.org">Christina Nicolaidis</a>
-          (Portland State University, Academic Autism Spectrum
-          Partnership in Research and Education)<br>
-        </li>
-        <li> <a href="Center for Improvement of Child and Family
-            Services">Katharine Cahn</a> (emerita, Portland State
-          University, Center for Improvement of Child and Family
-          Services)<br>
-        </li>
-        <li> <a
-            href="https://www.ohsu.edu/doernbecher/katharine-zuckerman-lab">Katharine
-            Zuckerman </a>(Oregon Health and Science University,
-          Pediatrics)<br>
-        </li>
-        <li> <a href="https://www.reed.edu/english/faculty/">Lisa
-            Steinman </a>(emerita, Reed College)<br>
-        </li>
-        <li> <a href="https://www.pdx.edu/profile/mathew-uretsky">Mathew
-            Uretsky</a> (Portland State University, School of Social
-          Work)<br>
-        </li>
-      </ul>
-      <p><a href="#top">(back)</a></p>
-    </div>
+    </footer>
   </body>
 </html>
