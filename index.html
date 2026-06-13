@@ -318,6 +318,109 @@ save.flexibly <- function(names.vals.list, ...) {
           <details class="foldout-section">
             <summary><h2>Cool miscellany</h2></summary>   
             <h3>
+              Checklist for setting up a VPS, with Tailscale-only incoming
+			  access and a Caddy HTTPS reverse proxy (2026-07-13).
+            </h3>
+            <p>
+              Checklist manifesto and all that.
+              Mostly for my own use; I have a VPS provider that, by default,
+			  has a default Ubuntu Server setup with by-default-SSH key-only
+			  authentication.
+            </p>
+            <details>
+               <summary>Markdown checklist</summary>
+               <pre class="copyable-snippet">
+               <code>
+**Ensure SSH key-only access; install Tailscale.**
+
+- Start VPS; make sure you have SSH key-only access.
+	- [ ] Confirm: have you stored your SSH key safely?
+	- [ ] Confirm: have you truly configured SSH key-only access?
+- Currently, you likely have `sudo` access without authentication. Now 
+make sure you have (local) password access for root and your user, since
+this may not always be true.
+	- [ ] `sudo passwd [current user]`
+	- [ ] `sudo passwd root`
+- Initial update.
+	- [ ] `sudo apt update && sudo apt upgrade`
+- [ ] Install Tailscale.
+```
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
+```
+    
+**Ensure Tailscale-only incoming access.**
+
+Source: https://tailscale.com/docs/how-to/secure-ubuntu-server-with-ufw.
+
+- [ ] Reconnect via Tailscale; we are now going to remove public access.
+- [ ] Install UFW.
+```
+sudo apt install ufw
+sudo ufw enable
+```
+- Lock down UFW.
+	- [ ] Again, double-check that you're connected via Tailscale; the
+	following steps are going to kill non-Tailscale access immediately.
+	- [ ] Configure UFW.
+```
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow in on tailscale0
+sudo ufw reload
+```
+- [ ] Double-check UFW setup: `sudo ufw status verbose`
+- After this point, you should have Tailscale-only access.
+	- [ ] `sudo service ssh restart`; this wil disconnect you.
+	- [ ] Wait a few minutes. Use the bathroom.
+	- [ ] SSH in from outside your Tailnet; this operation should time out.
+
+
+**Setup a Caddy reverse HTTPS proxy for port 8080.** Even if you currently
+don't have anything on 8080, it's good to have this setup in advance.
+
+Sources:
+
+https://tailscale.com/docs/how-to/set-up-https-certificates.
+
+https://tailscale.com/docs/solutions/code-on-ipad-vscode-caddy-code-server
+
+- Confirm that you've enabled HTTPS on your tailnet.
+	- If not, configure
+your Tailnet online like so:
+		- [ ] Enable MagicDNS.
+		- [ ] Under "HTTPS Certificates", click "Enable HTTPS".
+	- [ ] Check the name of your Tailnet domain via `tailscale cert`.
+	- [ ] `sudo tailscale cert [machine-name].[tailnet-name.ts.net]`
+- Install Caddy.
+	- [ ] Double-check Caddy install instructions; on Ubuntu, you may
+	need to add a third-party repository (as of 2026-07-13). If you want
+	to blindly copy-paste:
+```
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo chmod o+r /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+sudo chmod o+r /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
+```
+- Allow Caddy to fetch `tailscaled` HTTPS certificates.
+	- [ ] `sudo nano /etc/default/tailscaled`
+	- [ ]  Insert into `tailescaled` config: `TS_PERMIT_CERT_UID=caddy`
+	- [ ] `sudo systemctl reload tailscaled`
+- Configure Caddy.
+	- [ ] `sudo nano /etc/caddy/Caddyfile`
+	- [ ] Insert into Caddyfile:
+`[machine-name].[tailnet-name.ts.net] { reverse_proxy [machine tailnet IP]:8080 } `
+	- [ ] `sudo systemctl reload caddy`
+- At this point, you do not have a service exposed over 8080, so you are
+done.
+- [ ] `sudo apt update && sudo apt upgrade`, just to make sure.
+               </code>
+               </pre>
+            </details>
+            <h3>
               <a href="resources/print-calibrator/print-calibrator-letter.pdf"
                 >Print alignment/printable bounds test page (letter-size)</a
               >
@@ -392,7 +495,7 @@ save.flexibly <- function(names.vals.list, ...) {
           </details>
         </section>
         <footer>
-          <p>Last updated <time datetime="2026-03-04">March 4, 2026</time></p>
+          <p>Last updated <time datetime="2026-07-13">2026-07-13</time></p>
         </footer>
       </article>
     </main>
