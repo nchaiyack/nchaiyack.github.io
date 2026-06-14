@@ -431,9 +431,9 @@ FROM ubuntu:latest
 # Prevent interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Update package lists and install Nginx, then clean up cache to save space
+# Update package lists and install Nginx.
 RUN apt-get update && \
-    apt-get install -y nginx && \
+    apt-get install -y nginx
 
 # Document that the container listens on port 80
 EXPOSE 80
