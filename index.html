@@ -237,92 +237,12 @@
           </details>
           <details class="foldout-section">
             <summary><h2>R utilities for data analysts + other coding</h2></summary>
-            <p>
-              Some R utility functions I've created in my time doing data analysis, that doesn't deserve a whole library.
-              Other coding projects I've done when procrastinating
-              from the actual data analyses I'm supposed to do.
-            </p>
-            <h3>
-              R utility: <code>save.flexibly</code> - <code>save</code>
-              with elements/names specified in a list. (2026-03-24)
+			<h3>
+              Checklist for setting up a virtual private server, with Tailscale-only incoming
+			  access -- just in case you want to run a web service somewhere other than your computer.
             </h3>
             <p>
-              R's <code>save</code> function is a little hard to use
-              in data pipelines, since it requires the values to be saved
-              to be actual assigned variables. Here, <code>save.flexibly</code>
-              allows you to specify values to be saved as a list of the
-              form <code>list("name1", value1, "name2", value2, ...)</code>
-            </p>
-            <details>
-               <summary>Code for <code>save.flexibly</code></summary>
-               <pre class="copyable-snippet">
-               <code>
-# `save.flexibly` -- frontend to R `save` that takes names and values of objects
-#   to be saved as a list of the form list("name as string", value, "second name",
-#   second value...)
-# Arguments:
-#  `save.flexibly(
-#     list(name1, object1, name2, object2...),
-#     ...arguments to 'save'...
-#. )`
-# 
-save.flexibly <- function(names.vals.list, ...) {
-  # Make sure 'names.vals.list' is a list of names
-  # followed by objects:
-  if(0 != (length(names.vals.list) %% 2))
-    stop("save.flexibly: 'names.vals.list' doesn't have an even number of items (i.e. name-value pairs")
-  should.be.names <- names.vals.list[seq(1, length(names.vals.list), 2)]
-  `all.names?` <- Reduce(`&`, lapply(should.be.names, is.character))
-  if(!(`all.names?`))
-    stop("save.flexibly: an odd element of 'names.vals.list' (1, 3, ...) isn't a string giving an item name")
-  
-  # Okay, assign the elements...
-  for(base.i in seq(1, length(names.vals.list), 2)) {
-    assign(names.vals.list[[base.i]], names.vals.list[[base.i + 1]])
-  }
-  
-  # And now save in one go; this requires synthesizing a call...
-  # ...of the form save(...names..., ...other arguments...)
-  to.call <- as.call(
-    append(
-      list(as.symbol("save")),
-      append(
-        should.be.names,
-        as.symbol("...")
-      )
-    )
-  )
-  eval(to.call)
-}
-               </code>
-               </pre>
-            </details>
-            <h3>
-              <a
-                href="https://raw.githubusercontent.com/nchaiyack/nchaiyack.github.io/refs/heads/main/random-storage/color-detection-diagnostic.c"
-                >color-detection-diagnostic.c</a
-              >
-            </h3>
-
-            <p>
-              Mini-utility exercising multiple methods to determine terminal colour capabilities on *nix platforms -
-              environment variables, 'ncurses', xterm-style Primary/Secondary Device Attribute queries, true-colour
-              roundtripping, a visual demo, and process name detection.
-            </p>
-            <h3><a href="https://github.com/nchaiyack/libfixmathmatrix.h">libfixmathmatrix</a></h3>
-            <p>
-              A header-only (+ optional source file) amalgamation of a 32-bit fixed-point numerics and linear algebra
-              library.
-            </p>
-          </details>
-          <details class="foldout-section">
-            <summary><h2>Cool miscellany</h2></summary>   
-            <h3>
-              Checklist for setting up a VPS, with Tailscale-only incoming
-			  access and a Caddy HTTPS reverse proxy (2026-07-13).
-            </h3>
-            <p>
-              Checklist manifesto and all that.
+              I am a statistician, not a Linux systems administrator. Checklist manifesto and all that.
               Mostly for my own use; I have a VPS provider that, by default,
 			  has a default Ubuntu Server setup with by-default-SSH key-only
 			  authentication.
@@ -418,7 +338,7 @@ sudo apt install caddy
 done.
 - [ ] `sudo apt update && sudo apt upgrade`, just to make sure.
 
-**Optional exercise: create Docker Ubuntu container that exposes a stub web server on 8080 to the Tailnet.**
+**Optional exercise: create a Docker Ubuntu container forwarding port 80 → 8080to the Tailnet.**
 
 - [ ] `sudo snap install docker`
 - Create a Docker utility folder with a Dockerfile with `nginx` internally port 80.
@@ -440,7 +360,7 @@ EXPOSE 80
 
 # Automatically start Nginx in the foreground when the container boots
 CMD ["nginx", "-g", "daemon off;"]
-- Build the Docker image (`nginx-template`), and run a new container (`nginx-test`) that forwards port 80 to 8080.
+- Build the Docker image (`nginx-template`), and run a new container (`nginx-test`) completing the port forwarding 80 → 8080.
 	- `docker build -t nginx-template .`
     - `docker run -d -p 8080:80 --name nginx-test nginx-template`.
 - At this point, you can access the container ont the Tailnet: browse to `http://[tailnet IP]:8080`.
@@ -448,6 +368,86 @@ CMD ["nginx", "-g", "daemon off;"]
                </code>
                </pre>
             </details>
+            <p>
+              Some R utility functions I've created in my time doing data analysis, that doesn't deserve a whole library.
+              Other coding projects I've done when procrastinating
+              from the actual data analyses I'm supposed to do.
+            </p>
+            <h3>
+              R utility: <code>save.flexibly</code> - <code>save</code>
+              with elements/names specified in a list. (2026-03-24)
+            </h3>
+            <p>
+              R's <code>save</code> function is a little hard to use
+              in data pipelines, since it requires the values to be saved
+              to be actual assigned variables. Here, <code>save.flexibly</code>
+              allows you to specify values to be saved as a list of the
+              form <code>list("name1", value1, "name2", value2, ...)</code>
+            </p>
+            <details>
+               <summary>Code for <code>save.flexibly</code></summary>
+               <pre class="copyable-snippet">
+               <code>
+# `save.flexibly` -- frontend to R `save` that takes names and values of objects
+#   to be saved as a list of the form list("name as string", value, "second name",
+#   second value...)
+# Arguments:
+#  `save.flexibly(
+#     list(name1, object1, name2, object2...),
+#     ...arguments to 'save'...
+#. )`
+# 
+save.flexibly <- function(names.vals.list, ...) {
+  # Make sure 'names.vals.list' is a list of names
+  # followed by objects:
+  if(0 != (length(names.vals.list) %% 2))
+    stop("save.flexibly: 'names.vals.list' doesn't have an even number of items (i.e. name-value pairs")
+  should.be.names <- names.vals.list[seq(1, length(names.vals.list), 2)]
+  `all.names?` <- Reduce(`&`, lapply(should.be.names, is.character))
+  if(!(`all.names?`))
+    stop("save.flexibly: an odd element of 'names.vals.list' (1, 3, ...) isn't a string giving an item name")
+  
+  # Okay, assign the elements...
+  for(base.i in seq(1, length(names.vals.list), 2)) {
+    assign(names.vals.list[[base.i]], names.vals.list[[base.i + 1]])
+  }
+  
+  # And now save in one go; this requires synthesizing a call...
+  # ...of the form save(...names..., ...other arguments...)
+  to.call <- as.call(
+    append(
+      list(as.symbol("save")),
+      append(
+        should.be.names,
+        as.symbol("...")
+      )
+    )
+  )
+  eval(to.call)
+}
+               </code>
+               </pre>
+            </details>
+            <h3>
+              <a
+                href="https://raw.githubusercontent.com/nchaiyack/nchaiyack.github.io/refs/heads/main/random-storage/color-detection-diagnostic.c"
+                >color-detection-diagnostic.c</a
+              >
+            </h3>
+
+            <p>
+              Mini-utility exercising multiple methods to determine terminal colour capabilities on *nix platforms -
+              environment variables, 'ncurses', xterm-style Primary/Secondary Device Attribute queries, true-colour
+              roundtripping, a visual demo, and process name detection.
+            </p>
+            <h3><a href="https://github.com/nchaiyack/libfixmathmatrix.h">libfixmathmatrix</a></h3>
+            <p>
+              A header-only (+ optional source file) amalgamation of a 32-bit fixed-point numerics and linear algebra
+              library.
+            </p>
+          </details>
+          <details class="foldout-section">
+            <summary><h2>Cool miscellany</h2></summary>   
             <h3>
               <a href="resources/print-calibrator/print-calibrator-letter.pdf"
                 >Print alignment/printable bounds test page (letter-size)</a
