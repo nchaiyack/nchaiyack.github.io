@@ -417,6 +417,34 @@ sudo apt install caddy
 - At this point, you do not have a service exposed over 8080, so you are
 done.
 - [ ] `sudo apt update && sudo apt upgrade`, just to make sure.
+
+**Optional exercise: create Docker Ubuntu container that exposes a stub web server on 8080 to the Tailnet.**
+
+- [ ] `sudo snap install docker`
+- Create a Docker utility folder with a Dockerfile with `nginx` internally port 80.
+	- [ ] `mkdir docker-stuff; cd docker-stuff; touch Dockerfile`;
+	- [ ] `vi` or whatever into `Dockerfile`, and copy the following:
+```
+# Use the official Ubuntu base image
+FROM ubuntu:latest
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update package lists and install Nginx, then clean up cache to save space
+RUN apt-get update && \
+    apt-get install -y nginx && \
+
+# Document that the container listens on port 80
+EXPOSE 80
+
+# Automatically start Nginx in the foreground when the container boots
+CMD ["nginx", "-g", "daemon off;"]
+- Build the Docker image (`nginx-template`), and run a new container (`nginx-test`) that forwards port 80 to 8080.
+	- `docker build -t nginx-template .`
+    - `docker run -d -p 8080:80 --name nginx-test nginx-template`.
+- At this point, you can access the container ont the Tailnet: browse to `http://[tailnet IP]:8080`.
+```
                </code>
                </pre>
             </details>
