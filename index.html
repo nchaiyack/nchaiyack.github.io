@@ -448,6 +448,90 @@ save.flexibly <- function(names.vals.list, ...) {
           </details>
           <details class="foldout-section">
             <summary><h2>Cool miscellany</h2></summary>   
+             
+            <h3>
+              Everything you need to emulate A/UX on an SE/30 with the Snow emulator
+            </h3>
+            <p>
+            	<span style="float: inline-end">
+            	<a href="resources/se30-snow-aux/se30-snow-aux.png""
+					>
+				<img
+				  src="resources/se30-snow-aux/se30-snow-aux.png"
+				  alt="Snow with A/UX running"
+				  style="max-height: 15em; margin: 1em"/>
+				</a>
+			   </span>
+            	The Macintosh SE/30 can now be emulated by the remarkable
+            	<a href="https://snowemu.com">Snow emulator!</a> And, since
+            	Snow emulates hardware, rather than hooks Toolbox calls,
+            	it can run anything a hardware SE/30 can (well, apart from
+            	emulating PDS cards)! Wow – this was impossible 5 years ago
+            	(from writing this in 2026)...
+            </p>
+            <p> 
+            	<em>If you don't know what this means,</em> don't worry;
+            	if you do know what this means (and collect retro Macintosh
+            	computers), your dreams have come true.
+            </p>
+            <p>
+            	Here, apart from the Snow emulator, I have gathered everything
+            	you'll need to get A/UX set up on Snow. They are mirrored
+            	here <em>I did none of
+            	the hard work creating this: I try to credit the right people,
+            	and link to the source. Please tell me if I haven't credited
+            	you correctly (email above!)</em>
+            </p>
+            	You will need...
+            </p>
+            <h4>1/2: ROMs.</h4>
+            <ul>
+            	<li>The
+            		<a href="random-storage/se30-snow-aux/341-0650-01 SE30 Video ROM.rom">
+            			SE/30 video ROM</a>. Although the SE/30 is like earlier
+            			compact Macs in directly blitting a B&W bitmap to a 9" CRT,
+            			the ROM provides enough
+            			<a href="https://github.com/axelmuhr/Carrera040/blob/master/se30vrom.asm">in-memory structure</a>
+            			to have the Slot Manager recognize this as a "pseudo-expansion card".
+            			This was extracted by
+            			<a href="http://www.synack.net/~bbraun/roms/">Robert Braun.</a>
+            	</li>
+            	<li>
+            		The <a href="random-storage/se30-snow-aux/36B7FB6C - Mac IIsi.ROM">
+            			Macintosh IIsi ROM.</a>
+            		<strong>Despite not being for the SE/30,
+            		prefer this over the actual SE/30 ROM.</strong>
+            		Old Mac-heads will remember that that the SE/30 is compatible with this ROM,
+            		and moreover is 32-bit clean (i.e. supports 128MB RAM, from cold boot,
+            		without the MODE32 extension/patch).
+            		 Extracted by "Jatoba et al.", and made
+            		available on the
+            		<a href="https://macintoshgarden.org/apps/macintosh-rom-archive">
+            			Macintosh Garden.
+            		</a>
+            	</li>
+            	<li>
+            		The <a href="random-storage/se30-snow-aux/97221136 - SE30.ROM.rom">
+            			SE/30 ROM.</a>
+            		Again, you can (and should) get away with the IIsi ROM above. Extracted by
+            		"JDW", and available again on the 
+            		<a href="https://macintoshgarden.org/apps/macintosh-rom-archive">
+            			Macintosh Garden.
+            		</a>
+            	</li>
+            </ul>
+            <h4>2/2: An preinstalled A/UX 3.1.1 disk image.</h4>
+            <p>
+            	No one should have to go through the A/UX install process themselves.
+            	Luckily enough, here is a
+            	<a href="random-storage/se30-snow-aux/AUX_3_1_1GB_Use_In_Shoebill.zip">A/UX preinstalled disk image</a> – in raw format,
+            	so you can load it directly into Snow! In fact, <em>
+            	don't</em> attempt to extract partitions etc: the disk
+            	image has Unix format partitions. This is originally
+            	put together (thank you!) by mgd21 on the wonderful
+            	<a href="https://macintoshgarden.org/apps/aux-apple-unix-68k-version-301-31-update">
+            	Macintosh Garden repository. </a>
+            </p>
             <h3>
               <a href="resources/print-calibrator/print-calibrator-letter.pdf"
                 >Print alignment/printable bounds test page (letter-size)</a
