@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trace size calculator — reference-cycle model</title>
+<!-- Pinned KaTeX v0.19.0: HTTPS and SRI reject modified CDN assets. -->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.css"
+      integrity="sha384-3rdsX6e5mueWyoweR9NIVmtEsUkokpBT/0ALqKKIBMr9j4qhHkaIkAcGgsE6uVlp"
+      crossorigin="anonymous">
+<script defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.js"
+        integrity="sha384-QFFtAGzvvj+bfgCGxXJlNZZR1nXEZgvG8tDLCCY1F19xl20WlfTYgguB4VcNdxYk"
+        crossorigin="anonymous"></script>
+
+<style>
+  /* Deliberately keep browser-default fonts and controls. */
+  body { margin: 12px; }
+  main { max-width: 980px; margin: auto; }
+  h1 { font-size: 1.15em; margin: 0 0 6px; }
+  .layout { display: grid; grid-template-columns: minmax(390px, 1.25fr) minmax(290px, 1fr); gap: 20px; margin-top: 10px; }
+  h2 { font-size: 1em; margin: 0 0 6px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { padding: 4px 5px; border-bottom: 1px solid #ddd; text-align: left; vertical-align: middle; }
+  th { background: #f3f3f3; }
+  .parameters td:first-child { width: 57%; }
+  .parameters td:nth-child(2) { width: 150px; }
+  .parameters input { width: 100%; max-width: 105px; box-sizing: border-box; font: inherit; padding: 3px; }
+  .parameters input:disabled { color: #666; background: #eee; }
+  .parameters td:last-child { white-space: nowrap; }
+  .duration-control { display: flex; gap: 2px; align-items: center; }
+  .duration-control input { flex: 1 1 auto; min-width: 0; width: 62px; }
+  .duration-control button {
+    flex: 0 0 21px; margin: 0; padding: 2px 0; line-height: 1.1;
+  }
+  .section-row td { background: #f7f7f7; font-weight: bold; padding-top: 7px; }
+  .derived td { color: #444; }
+  .derived td:nth-child(2) { font-variant-numeric: tabular-nums; }
+  .total { font-size: 1.7em; font-weight: bold; margin: 2px 0; font-variant-numeric: tabular-nums; }
+  .small { font-size: .9em; }
+  .subtle { color: #555; }
+  .result-table td:last-child { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .bar { display: flex; height: 10px; border: 1px solid #888; margin: 9px 0 3px; }
+  .bar-high { background: #777; }
+  .bar-low { background: #ccc; }
+  button { font: inherit; margin-top: 9px; padding: 3px 10px; }
+  .note { font-size: .85em; margin: 9px 0 0; line-height: 1.3; }
+  .equation { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+  .equation .katex { white-space: nowrap; }
+
+  #error { color: #a00; margin: 5px 0 0; }
+  #error:empty { display: none; }
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; gap: 5px; }
+    .parameters td:first-child { width: 58%; }
+  }
+  @media (max-width: 400px) {
+    body { margin: 5px; }
+    th, td { padding: 2px; }
+    .parameters input { max-width: 78px; }
+    .duration-control input { max-width: 78px; }
+    .parameters td:last-child { font-size: .85em; }
+    h2 { margin-bottom: 3px; }
+    button { margin-top: 5px; }
+    .note { margin-top: 4px; }
+    .layout { margin-top: 5px; }
+    .parameters td, .parameters th { padding-top: 1px; padding-bottom: 1px; }
+    .section-row td { padding-top: 3px; }
+    .bar { margin: 4px 0 2px; }
+    #total-cycles { margin: 3px 0; }
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Trace size calculator</h1>
+  <div class="layout">
+    <section aria-label="Parameters">
+      <table class="parameters">
+        <thead><tr><th scope="col">Parameter</th><th scope="col">Value</th><th scope="col">Unit</th></tr></thead>
+        <tbody>
+          <tr><td><label for="ghz">Reference clock (<i>s<sub>ref</sub></i>)</label></td><td><input id="ghz" type="number" min="0" step="any" value="1"></td><td>GHz</td></tr>
+          <tr><td><label for="time">Simulated duration (<i>t</i>)</label></td><td><input id="time" type="number" min="0" step="any" value="30"></td><td>s</td></tr>
+          <tr class="section-row"><td colspan="3">High fidelity · 48-bit</td></tr>
+          <tr><td><label for="sh">Section duration (<i>s<sub>h</sub></i>)</label></td><td><div class="duration-control">
+            <input id="sh" type="number" min="0" step="any" value="1">
+            <button type="button" data-round="sh" data-direction="down" title="Round down to a whole number of high-fidelity samples" aria-label="Round high-fidelity duration down">↓</button>
+            <button type="button" data-round="sh" data-direction="up" title="Round up to a whole number of high-fidelity samples" aria-label="Round high-fidelity duration up">↑</button>
+          </div></td><td>s</td></tr>
+          <tr><td><label for="rh">Sampling interval (<i>r<sub>h</sub></i>)</label></td><td><input id="rh" type="number" min="1" step="1" value="24"></td><td>cycles/sample</td></tr>
+          <tr><td><label for="bh">Sample size (<i>b<sub>h</sub></i>)</label></td><td><input id="bh" type="number" value="6" disabled></td><td>bytes</td></tr>
+          <tr class="derived"><td>Samples per section</td><td><output id="high-per-section-samples">—</output></td><td>samples</td></tr>
+          <tr class="derived"><td>Bytes per section</td><td><output id="high-per-section-bytes">—</output></td><td>bytes</td></tr>
+          <tr class="section-row"><td colspan="3">Low fidelity · 32-bit</td></tr>
+          <tr><td><label for="sl">Section duration (<i>s<sub>ℓ</sub></i>)</label></td><td><div class="duration-control">
+            <input id="sl" type="number" min="0" step="any" value="10">
+            <button type="button" data-round="sl" data-direction="down" title="Round down to a whole number of low-fidelity samples" aria-label="Round low-fidelity duration down">↓</button>
+            <button type="button" data-round="sl" data-direction="up" title="Round up to a whole number of low-fidelity samples" aria-label="Round low-fidelity duration up">↑</button>
+          </div></td><td>s</td></tr>
+          <tr><td><label for="rl">Sampling interval (<i>r<sub>ℓ</sub></i>)</label></td><td><input id="rl" type="number" min="1" step="1" value="2048"></td><td>cycles/sample</td></tr>
+          <tr><td><label for="bl">Sample size (<i>b<sub>ℓ</sub></i>)</label></td><td><input id="bl" type="number" value="4" disabled></td><td>bytes</td></tr>
+          <tr class="derived"><td>Samples per section</td><td><output id="low-per-section-samples">—</output></td><td>samples</td></tr>
+          <tr class="derived"><td>Bytes per section</td><td><output id="low-per-section-bytes">—</output></td><td>bytes</td></tr>
+        </tbody>
+      </table>
+      <button type="button" id="reset">Reset defaults</button>
+      <p id="error" role="status" aria-live="polite"></p>
+    </section>
+
+    <section aria-label="Results" aria-live="polite">
+      <h2>Estimated trace size (<i>S</i>)</h2>
+      <div class="total" id="total-pretty">—</div>
+      <table class="result-table">
+        <thead><tr><th scope="col">Component</th><th scope="col">Size</th></tr></thead>
+        <tbody>
+          <tr><td>High fidelity (6 B/sample)</td><td id="high-size">—</td></tr>
+          <tr><td>Low fidelity (4 B/sample)</td><td id="low-size">—</td></tr>
+          <tr><td>High samples</td><td id="high-samples">—</td></tr>
+          <tr><td>Low samples</td><td id="low-samples">—</td></tr>
+        </tbody>
+      </table>
+      <div class="bar" id="share-bar" role="img" aria-label="Contribution by fidelity">
+        <span class="bar-high" id="high-bar"></span><span class="bar-low" id="low-bar"></span>
+      </div>
+      <div class="small subtle" id="share-summary">—</div>
+      <p class="small subtle" id="total-cycles">Target cycles <i>c</i> = <span id="cycle-count">—</span> cycles</p>
+    </section>
+  </div>
+  <p class="note">
+    Reference-cycle model: <span class="equation" id="eq-c"><i>c</i> = <i>s<sub>ref</sub></i> × <i>t</i></span>.
+    Average-rate approximation:
+    <span class="equation" id="eq-approx"><i>S</i> ≈ (<i>s<sub>ref</sub></i> · <i>t</i> / (<i>s<sub>h</sub></i> + <i>s<sub>ℓ</sub></i>)) · (6<i>s<sub>h</sub></i>/<i>r<sub>h</sub></i> + 4<i>s<sub>ℓ</sub></i>/<i>r<sub>ℓ</sub></i>)</span>.
+    The calculator counts whole samples per section, including the final partial section:
+    <span class="equation" id="eq-exact"><i>S</i> = 6<i>N<sub>h</sub></i> + 4<i>N<sub>ℓ</sub></i></span> bytes.
+    Duration arrows snap to whole samples using
+    <span class="equation" id="eq-step"><i>s<sub>i</sub></i> = <i>N<sub>i</sub></i> · <i>r<sub>i</sub></i> / <i>s<sub>ref</sub></i></span>.
+    <span id="math-status" role="status"></span>
+  </p>
+</main>
+<script>
+(() => {
+  'use strict';
+  // KaTeX is loaded as a pinned, integrity-checked CDN script. If blocked,
+  // readable plain-text equations remain in the markup.
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof katex === 'undefined') {
+      document.getElementById('math-status').textContent =
+        ' (Typeset equations unavailable; displaying plain text.)';
+      return;
+    }
+    for (const [id, latex] of [
+      ['eq-c', String.raw`c = s_{\mathrm{ref}}\,t`],
+      ['eq-approx', String.raw`S \approx \frac{s_{\mathrm{ref}}\,t}{s_h+s_\ell}\left(\frac{6s_h}{r_h}+\frac{4s_\ell}{r_\ell}\right)`],
+      ['eq-exact', String.raw`S = 6N_h+4N_\ell`],
+      ['eq-step', String.raw`s_i = \frac{N_i r_i}{s_{\mathrm{ref}}},`]
+    ]) {
+      katex.render(latex, document.getElementById(id), {
+        throwOnError: false, trust: false, output: 'htmlAndMathml'
+      });
+    }
+  });
+  const $ = id => document.getElementById(id);
+  const ids = ['ghz','time','sh','rh','sl','rl'];
+  const defaults = {ghz:1,time:30,sh:1,rh:24,sl:10,rl:2048};
+  const integers = new Intl.NumberFormat('en-US', {maximumFractionDigits:0});
+  const decimals = new Intl.NumberFormat('en-US', {maximumFractionDigits:2});
+  const fmtBytes = n => n >= 2**30 ? decimals.format(n/2**30)+' GiB' :
+    n >= 2**20 ? decimals.format(n/2**20)+' MiB' :
+    n >= 2**10 ? decimals.format(n/2**10)+' KiB' : integers.format(n)+' B';
+
+  function clearResults(message) {
+    for (const id of ['total-pretty','high-size','low-size','high-samples','low-samples','share-summary','cycle-count','high-per-section-samples','high-per-section-bytes','low-per-section-samples','low-per-section-bytes']) $(id).textContent = '—';
+    $('high-bar').style.width='0%'; $('low-bar').style.width='0%';
+    $('error').textContent = message;
+  }
+
+  function calculate() {
+    const v = Object.fromEntries(ids.map(id => [id, $(id).value.trim()==='' ? NaN : Number($(id).value)]));
+    const {ghz, time, sh, rh, sl, rl} = v;
+    if (!Object.values(v).every(Number.isFinite) || ghz<=0 || time<0 || sh<=0 || sl<=0 || rh<=0 || rl<=0 || !Number.isInteger(rh) || !Number.isInteger(rl)) {
+      clearResults('Enter valid positive inputs (sampling intervals must be whole cycles).');
+      return;
+    }
+    const c = ghz*1e9;
+    const pair = sh+sl;
+    if (!Number.isFinite(c*pair) || !Number.isSafeInteger(Math.floor(c*time))) {
+      clearResults('Recording size exceeds the safe numerical range.');
+      return;
+    }
+    const pairs = Math.floor(time/pair);
+    const remaining = Math.max(0,time-pairs*pair);
+    const extraHigh = Math.min(remaining,sh);
+    const extraLow = Math.max(0,remaining-sh);
+    const samples = (seconds,interval) => {
+      const n = c*seconds/interval;
+      // Permit floating-point noise at mathematically integral sample boundaries.
+      return Math.floor(n + 8*Number.EPSILON*Math.max(1,Math.abs(n)));
+    };
+    const highPerSectionSamples = samples(sh,rh);
+    const lowPerSectionSamples = samples(sl,rl);
+    const highPerSectionBytes = 6*highPerSectionSamples;
+    const lowPerSectionBytes = 4*lowPerSectionSamples;
+    const nh = pairs*highPerSectionSamples+samples(extraHigh,rh);
+    const nl = pairs*lowPerSectionSamples+samples(extraLow,rl);
+    const highBytes = 6*nh, lowBytes = 4*nl, total = highBytes+lowBytes;
+    if (![highPerSectionSamples,lowPerSectionSamples,highPerSectionBytes,
+           lowPerSectionBytes,nh,nl,highBytes,lowBytes,total].every(Number.isSafeInteger)) {
+      clearResults('Sample counts or bytes exceed exact integer precision.');
+      return;
+    }
+    $('error').textContent='';
+    const share = total ? highBytes/total*100 : 0;
+    $('total-pretty').textContent=fmtBytes(total);
+    $('high-per-section-samples').textContent=integers.format(highPerSectionSamples);
+    $('high-per-section-bytes').textContent=integers.format(highPerSectionBytes);
+    $('low-per-section-samples').textContent=integers.format(lowPerSectionSamples);
+    $('low-per-section-bytes').textContent=integers.format(lowPerSectionBytes);
+    $('high-size').textContent=fmtBytes(highBytes);
+    $('low-size').textContent=fmtBytes(lowBytes);
+    $('high-samples').textContent=integers.format(nh);
+    $('low-samples').textContent=integers.format(nl);
+    $('high-bar').style.width=share+'%';
+    $('low-bar').style.width=(100-share)+'%';
+    $('share-summary').textContent=decimals.format(share)+'% high / '+decimals.format(100-share)+'% low';
+    $('share-bar').setAttribute('aria-label',decimals.format(share)+' percent high fidelity; '+decimals.format(100-share)+' percent low fidelity');
+    $('cycle-count').textContent=integers.format(Math.round(c*time));
+  }
+  function roundDuration(section, direction) {
+    const frequency = Number($('ghz').value) * 1e9;
+    const interval = Number($(section === 'sh' ? 'rh' : 'rl').value);
+    const seconds = Number($(section).value);
+    if (!$('ghz').value.trim() || !$(section).value.trim() ||
+        !Number.isFinite(frequency) || frequency<=0 ||
+        !Number.isSafeInteger(interval) || interval<=0 ||
+        !Number.isFinite(seconds) || seconds<=0) {
+      $('error').textContent = 'Enter a positive clock speed, duration, and whole-cycle sampling interval before rounding.';
+      return;
+    }
+
+    const sampleCount = seconds * frequency / interval;
+    if (!Number.isSafeInteger(Math.ceil(sampleCount)) || sampleCount<=0) {
+      $('error').textContent = 'Sample count is outside the supported range.';
+      return;
+    }
+
+    // Treat an already aligned duration as unchanged in either direction,
+    // including small floating-point inaccuracies in the division.
+    const nearest = Math.round(sampleCount);
+    const tolerance = 8*Number.EPSILON*Math.max(1,Math.abs(sampleCount));
+    const atBoundary = Math.abs(sampleCount-nearest) <= tolerance;
+    const count = atBoundary ? nearest :
+      (direction==='down' ? Math.floor(sampleCount) : Math.ceil(sampleCount));
+    if (count < 1) {
+      $('error').textContent = 'Rounding down would make this section zero samples; use ↑ instead.';
+      return;
+    }
+    const adjusted = count * interval / frequency;
+    if (!Number.isFinite(adjusted) || adjusted<=0) {
+      $('error').textContent = 'Rounded duration is outside the supported range.';
+      return;
+    }
+    // Retain sufficient precision for nanosecond-scale section durations.
+    $(section).value = Number(adjusted.toPrecision(16)).toString();
+    calculate();
+  }
+
+  document.querySelectorAll('[data-round]').forEach(button => {
+    button.addEventListener('click', () =>
+      roundDuration(button.dataset.round, button.dataset.direction));
+  });
+  ids.forEach(id => $(id).addEventListener('input',calculate));
+  $('reset').addEventListener('click',()=>{Object.entries(defaults).forEach(([id,value])=>$(id).value=value);calculate();});
+  calculate();
+})();
+</script>
+</body>
+</html>
